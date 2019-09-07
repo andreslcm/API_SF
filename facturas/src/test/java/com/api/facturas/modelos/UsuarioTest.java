@@ -44,7 +44,28 @@ class UsuarioTest {
 		assertTrue(constructorTest instanceof Usuario);
 	}
 
+	@Test
+	void getIdUsuarioTest() {
+		
+		/** test de getter de Usuario.IdUsuario */
+		
+		assertNotNull(usuarioTest.getIdUsuario());
+		assertTrue(usuarioTest.getIdUsuario() instanceof Long);
 
+	}
+	
+	@Test
+	void setIdUsuarioTest() {
+		
+		/** test de setter de Usuario.IdUsuario */
+		
+		usuarioTest.setIdUsuario(1234);
+		assertNotNull(usuarioTest.getIdUsuario());
+		assertTrue(usuarioTest.getIdUsuario() == 1234);
+
+	}
+	
+	
 	
 	
 }
