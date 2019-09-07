@@ -64,13 +64,6 @@ public class Usuario implements Serializable {
         return idUsuario;
     }
     /**
-     *Método para asignar el id del usuario. 
-     * @param idUsuario
-     */
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-    /**
      * Método para obtener la lista de facturas del usuario.
      * @return facturas
      */
