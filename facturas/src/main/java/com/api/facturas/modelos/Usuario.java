@@ -2,6 +2,9 @@ package com.api.facturas.modelos;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
+
+import com.api.facturas.dtos.DtoUsuario;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -55,6 +58,29 @@ public class Usuario implements Serializable {
      * Constructor vacío. Necesario para que Hibernate instancie el objeto.
      */
     public Usuario() {
+    }
+
+    /**
+     * Constructor que toma como parámetro un objeto DtoUsuario para generar un
+     * usuario a partir de este.
+     * 
+     * @param usuario
+     */
+    public Usuario(DtoUsuario usuario) {
+        this.nombre = usuario.getNombre();
+        this.apellido = usuario.getApellido();
+        this.nombreUsuario = usuario.getNombreUsuario();
+        // this.contrasena = usuario.getContrasena();
+        this.correo = usuario.getCorreo();
+        this.direccion = usuario.getDireccion();
+        this.ciudad = usuario.getCiudad();
+        this.estado = usuario.getEstado();
+        this.pais = usuario.getPais();
+        this.codigoPostal = usuario.getCodigoPostal();
+        this.telefono = usuario.getTelefono();
+        this.datosBanco = usuario.getDatosBanco();
+        this.datosPaypal = usuario.getDatosPaypal();
+        this.datosPayoneer = usuario.getDatosPayoneer();
     }
 
     /**
@@ -351,6 +377,29 @@ public class Usuario implements Serializable {
      */
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    /**
+     * Método que recibe como parámetro un objeto DtoUsuario para actualizar los
+     * datos del usuario a partir de este.
+     * 
+     * @param usuario
+     */
+    public void actualizarDatos(DtoUsuario usuario) {
+        this.setNombre(usuario.getNombre());
+        this.setApellido(usuario.getApellido());
+        this.setNombreUsuario(usuario.getNombreUsuario());
+        this.setContrasena(usuario.getContrasena());
+        this.setCorreo(usuario.getCorreo());
+        this.setDireccion(usuario.getDireccion());
+        this.setCiudad(usuario.getCiudad());
+        this.setEstado(usuario.getEstado());
+        this.setPais(usuario.getPais());
+        this.setCodigoPostal(usuario.getCodigoPostal());
+        this.setTelefono(usuario.getTelefono());
+        this.setDatosBanco(usuario.getDatosBanco());
+        this.setDatosPaypal(usuario.getDatosPaypal());
+        this.setDatosPayoneer(usuario.getDatosPayoneer());
     }
 
 }

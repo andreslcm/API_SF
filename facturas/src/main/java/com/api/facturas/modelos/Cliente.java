@@ -74,7 +74,6 @@ public class Cliente implements Serializable {
         this.estado = cliente.getEstado();
         this.pais = cliente.getPais();
         this.codigoPostal = cliente.getCodigoPostal();
-
         this.telefono = cliente.getTelefono();
         this.correoElectronico = cliente.getCorreoElectronico();
         this.terminoPago = cliente.getTerminoPago();
