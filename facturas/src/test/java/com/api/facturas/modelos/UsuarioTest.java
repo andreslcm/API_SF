@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.api.facturas.dtos.DtoUsuario;
+
 
 
 /** Para testear la clase Usuario
@@ -17,6 +19,7 @@ class UsuarioTest {
 	/**  Usuario para usar en varios test */
 	
 	Usuario usuarioTest;
+	DtoUsuario dtoTest;
 	
 	@BeforeClass
 	void setUp() { 
@@ -25,6 +28,8 @@ class UsuarioTest {
 		
 	Usuario usuarioTest = new Usuario("nombre", "apellido", "nombreusuario", "contraseña", "correo", "direccion", 
             "ciudad", "estado", "pais", "codigopostal", "telefono");
+	DtoUsuario dtoTest = new DtoUsuario("dtonombre", "dtoapellido", "dtonombreusuario", "dtocontraseña", "dtocorreo", "dtodireccion", 
+            "dtociudad", "dtoestado", "dtopais", "dtocodigopostal", "dtotelefono");
 	}
 	
 	@Test
@@ -32,7 +37,11 @@ class UsuarioTest {
 		
 		/** test de constructor */
 		
+		assertNotNull(usuarioTest);
 		assertTrue(usuarioTest instanceof Usuario);
+		Usuario constructorTest = new Usuario(dtoTest);
+		assertNotNull(constructorTest);
+		assertTrue(constructorTest instanceof Usuario);
 	}
 
 
