@@ -70,7 +70,6 @@ public class Usuario implements Serializable {
         this.nombre = usuario.getNombre();
         this.apellido = usuario.getApellido();
         this.nombreUsuario = usuario.getNombreUsuario();
-        // this.contrasena = usuario.getContrasena();
         this.correo = usuario.getCorreo();
         this.direccion = usuario.getDireccion();
         this.ciudad = usuario.getCiudad();

@@ -2,6 +2,9 @@ package com.api.facturas.modelos;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
+
+import com.api.facturas.dtos.DtoFactura;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -49,6 +52,24 @@ public class Factura implements Serializable {
      * Constructor vacío. Necesario para que Hibernate instancie el objeto.
      */
     public Factura() {
+    }
+
+    /**
+     * Constructor que toma como parámetro un objeto DtoFactura para generar una
+     * factura a partir de este.
+     * 
+     * @param factura
+     */
+    public Factura(DtoFactura factura) {
+        this.numeroFactura = factura.getNumeroFactura();
+        this.ordenCompra = factura.getOrdenCompra();
+        this.fechaFactura = factura.getFechaFactura();
+        this.fechaVencimiento = factura.getFechaVencimiento();
+        this.subtotal = factura.getSubtotal();
+        this.impuestos = factura.getImpuestos();
+        this.total = factura.getTotal();
+        this.notas = factura.getNotas();
+        this.estaPagada = factura.getEstaPagada();
     }
 
     /**
@@ -275,6 +296,23 @@ public class Factura implements Serializable {
      */
     public void setEstaPagada(boolean pagada) {
         this.estaPagada = pagada;
+    }
+
+    /**
+     * Método que recibe como parámetro un objeto DtoFactura para actualizar los
+     * datos de la factura a partir de este.
+     * 
+     * @param factura
+     */
+    public void actualizarFactura(DtoFactura factura) {
+        this.numeroFactura = factura.getNumeroFactura();
+        this.ordenCompra = factura.getOrdenCompra();
+        this.fechaFactura = factura.getFechaFactura();
+        this.fechaVencimiento = factura.getFechaVencimiento();
+        this.subtotal = factura.getSubtotal();
+        this.impuestos = factura.getImpuestos();
+        this.total = factura.getTotal();
+        this.notas = factura.getNotas();
     }
 
 }

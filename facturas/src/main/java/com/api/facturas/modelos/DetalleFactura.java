@@ -6,6 +6,8 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import com.api.facturas.dtos.DtoDetalleFactura;
+
 /**
  * DetalleFactura
  */
@@ -33,14 +35,32 @@ public class DetalleFactura implements Serializable {
     }
 
     /**
-     * Constructor para crear un detalle con un monto y una descripción.
+     * Constructor que recibe un objeto DtoDetalleFactura para generar un
+     * DetalleFactura a partir de este.
      * 
-     * @param monto
-     * @param descripcionProyecto
+     * @param detalleFactura
      */
-    public DetalleFactura(double monto, String descripcionProyecto) {
-        this.monto = monto;
-        this.descripcionProyecto = descripcionProyecto;
+    public DetalleFactura(DtoDetalleFactura detalleFacturaDto) {
+        this.monto = detalleFacturaDto.getMonto();
+        this.descripcionProyecto = detalleFacturaDto.getDescripcionProyecto();
+    }
+
+    /**
+     * Método para obtener la factura que corresponde al detalle.
+     * 
+     * @return factura
+     */
+    public Factura getFactura() {
+        return factura;
+    }
+
+    /**
+     * Método para asignar una factura a cada detalle.
+     * 
+     * @param factura
+     */
+    public void setFactura(Factura factura) {
+        this.factura = factura;
     }
 
     /**
@@ -86,6 +106,16 @@ public class DetalleFactura implements Serializable {
      */
     public void setDescripcionProyecto(String descripcionProyecto) {
         this.descripcionProyecto = descripcionProyecto;
+    }
+
+    /**
+     * Método para actualizar los datos de un detalle a partir de su DTO.
+     * 
+     * @param detalletDto
+     */
+    public void actualizarDetalles(DtoDetalleFactura detalletDto) {
+        this.monto = detalletDto.getMonto();
+        this.descripcionProyecto = detalletDto.getDescripcionProyecto();
     }
 
 }
