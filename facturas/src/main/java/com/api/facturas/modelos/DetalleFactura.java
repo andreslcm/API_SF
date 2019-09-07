@@ -70,4 +70,22 @@ public class DetalleFactura implements Serializable {
         return idDetalleFactura;
     }
 
+    /**
+     * Método para obtener la descripción del proyecto realizado.
+     * 
+     * @return descripcionProyecto
+     */
+    public String getDescripcionProyecto() {
+        return descripcionProyecto;
+    }
+
+    /**
+     * Método para asignar la descripción del proyecto realizado.
+     * 
+     * @param descripcionProyecto
+     */
+    public void setDescripcionProyecto(String descripcionProyecto) {
+        this.descripcionProyecto = descripcionProyecto;
+    }
+
 }
