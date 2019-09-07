@@ -2,6 +2,9 @@ package com.api.facturas.modelos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,16 +23,23 @@ class UsuarioTest {
 	
 	Usuario usuarioTest;
 	DtoUsuario dtoTest;
+	List<Factura> facturasTest;
+	List<Cliente> clienteTest;
 	
 	@BeforeClass
 	void setUp() { 
 		
-		/** seteado de usuarioTest para todas las pruebas */
+		/** seteado de variables para todas las pruebas */
 		
 	Usuario usuarioTest = new Usuario("nombre", "apellido", "nombreusuario", "contraseña", "correo", "direccion", 
             "ciudad", "estado", "pais", "codigopostal", "telefono");
 	DtoUsuario dtoTest = new DtoUsuario("dtonombre", "dtoapellido", "dtonombreusuario", "dtocontraseña", "dtocorreo", "dtodireccion", 
             "dtociudad", "dtoestado", "dtopais", "dtocodigopostal", "dtotelefono");
+	facturasTest = new ArrayList<Factura>();
+	facturasTest.add(new Factura(1234,4321));
+	clienteTest = new ArrayList<Cliente>();
+	clienteTest.add(new Cliente("nombreCliente", "direccion", "ciudad", "estado", "pais","codigoPostal"));
+	
 	}
 	
 	@Test
@@ -65,6 +75,24 @@ class UsuarioTest {
 
 	}
 	
+	@Test
+	void getFacturasTest() {
+		
+		/** test de getter de Usuario.facturas */
+		
+		assertTrue(usuarioTest.getFacturas() instanceof List<Factura>);
+
+	}
+	
+	@Test
+	void setFacturasTest() {
+		
+		/** test de setter de Usuario.facturas */
+		
+		usuarioTest.setFacturas(facturasTest);
+		assertTrue(usuarioTest.getFacturas().equals(facturasTest));
+
+	}
 	
 	
 	
