@@ -25,5 +25,41 @@ public class DetalleFactura implements Serializable{
     private String descripcionProyecto;
     @Column(name = "monto")
     private double monto;
+
+    /**
+     * Constructor vacío. Necesario para que Hibernate instancie el objeto.
+     */
+    public DetalleFactura(){
+    }
+    /**
+     * Constructor para crear un detalle con un monto y una descripción.
+     * @param monto
+     * @param descripcionProyecto
+     */
+    public DetalleFactura(double monto, String descripcionProyecto){
+        this.monto = monto;
+        this.descripcionProyecto = descripcionProyecto;
+    }
+    /**
+     * Método para obtener el monto del detalle.
+     * @return monto
+     */
+    public double getMonto() {
+        return monto;
+    }
+    /**
+     * Método para asignar el monto del detalle.
+     * @param monto
+     */
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+    /**
+     * Método para obtener el id del detalle.
+     * @return idDetalleFactura
+     */
+    public Long getIdDetalleFactura() {
+        return idDetalleFactura;
+    }
     
 }
