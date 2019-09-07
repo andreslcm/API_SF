@@ -12,8 +12,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "detalle_factura")
 @EntityListeners(AuditingEntityListener.class)
-public class DetalleFactura implements Serializable{
-    
+public class DetalleFactura implements Serializable {
+
     private static final long serialVersionUID = -732583211223219318L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,37 +29,45 @@ public class DetalleFactura implements Serializable{
     /**
      * Constructor vacío. Necesario para que Hibernate instancie el objeto.
      */
-    public DetalleFactura(){
+    public DetalleFactura() {
     }
+
     /**
      * Constructor para crear un detalle con un monto y una descripción.
+     * 
      * @param monto
      * @param descripcionProyecto
      */
-    public DetalleFactura(double monto, String descripcionProyecto){
+    public DetalleFactura(double monto, String descripcionProyecto) {
         this.monto = monto;
         this.descripcionProyecto = descripcionProyecto;
     }
+
     /**
      * Método para obtener el monto del detalle.
+     * 
      * @return monto
      */
     public double getMonto() {
         return monto;
     }
+
     /**
      * Método para asignar el monto del detalle.
+     * 
      * @param monto
      */
     public void setMonto(double monto) {
         this.monto = monto;
     }
+
     /**
      * Método para obtener el id del detalle.
+     * 
      * @return idDetalleFactura
      */
     public Long getIdDetalleFactura() {
         return idDetalleFactura;
     }
-    
+
 }
