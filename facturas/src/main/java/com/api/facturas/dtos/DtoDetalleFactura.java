@@ -57,6 +57,15 @@ public class DtoDetalleFactura {
     }
 
     /**
+     * Método para asignar id al DTO de DetalleFactura.
+     * 
+     * @param idDetalleFactura
+     */
+    public void setIdDetalleFactura(Long idDetalleFactura) {
+        this.idDetalleFactura = idDetalleFactura;
+    }
+
+    /**
      * Método para obtener la descripción del proyecto realizado.
      * 
      * @return descripcionProyecto

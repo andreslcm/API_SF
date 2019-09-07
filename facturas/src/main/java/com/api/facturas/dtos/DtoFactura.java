@@ -9,6 +9,7 @@ import com.api.facturas.modelos.Factura;
  */
 public class DtoFactura {
 
+    private Long idFactura;
     private Long numeroFactura;
     private String ordenCompra;
     private Date fechaFactura;
@@ -40,6 +41,7 @@ public class DtoFactura {
         this.total = factura.getTotal();
         this.notas = factura.getNotas();
         this.estaPagada = factura.getEstaPagada();
+        this.idFactura = factura.getIdFactura();
     }
 
     /**
@@ -203,6 +205,24 @@ public class DtoFactura {
      */
     public void setEstaPagada(boolean pagada) {
         this.estaPagada = pagada;
+    }
+
+    /**
+     * Método para obtener id de la factura.
+     * 
+     * @return idFactura
+     */
+    public Long getIdFactura() {
+        return idFactura;
+    }
+
+    /**
+     * Método para aginar un id al DTO de la factura.
+     * 
+     * @param idFactura
+     */
+    public void setIdFactura(Long idFactura) {
+        this.idFactura = idFactura;
     }
 
 }
