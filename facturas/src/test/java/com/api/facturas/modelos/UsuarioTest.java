@@ -24,7 +24,7 @@ class UsuarioTest {
 	Usuario usuarioTest;
 	DtoUsuario dtoTest;
 	List<Factura> facturasTest;
-	List<Cliente> clienteTest;
+	List<Cliente> clientesTest;
 	
 	@BeforeClass
 	void setUp() { 
@@ -37,8 +37,8 @@ class UsuarioTest {
             "dtociudad", "dtoestado", "dtopais", "dtocodigopostal", "dtotelefono");
 	facturasTest = new ArrayList<Factura>();
 	facturasTest.add(new Factura(1234,4321));
-	clienteTest = new ArrayList<Cliente>();
-	clienteTest.add(new Cliente("nombreCliente", "direccion", "ciudad", "estado", "pais","codigoPostal"));
+	clientesTest = new ArrayList<Cliente>();
+	clientesTest.add(new Cliente("nombreCliente", "direccion", "ciudad", "estado", "pais","codigoPostal"));
 	
 	}
 	
@@ -91,6 +91,25 @@ class UsuarioTest {
 		
 		usuarioTest.setFacturas(facturasTest);
 		assertTrue(usuarioTest.getFacturas().equals(facturasTest));
+
+	}
+	
+	@Test
+	void getClientesTest() {
+		
+		/** test de getter de Usuario.clientes */
+		
+		assertTrue(usuarioTest.getClientes() instanceof List<Cliente>);
+
+	}
+	
+	@Test
+	void setClientesTest() {
+		
+		/** test de setter de Usuario.clientes */
+		
+		usuarioTest.setCliente(clientesTest);
+		assertTrue(usuarioTest.getClientes().equals(clientesTest));
 
 	}
 	
