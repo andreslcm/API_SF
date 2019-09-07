@@ -2,6 +2,9 @@ package com.api.facturas.modelos;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
+
+import com.api.facturas.dtos.DtoCliente;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -56,6 +59,32 @@ public class Cliente implements Serializable {
      * Constructor vacío. Necesario para que Hibernate instancie el objeto.
      */
     public Cliente() {
+    }
+
+    /**
+     * Constructor que toma como parámetro un objeto DtoCliente para generar un
+     * cliente a partir de este.
+     * 
+     * @param cliente
+     */
+    public Cliente(DtoCliente cliente) {
+        this.nombreCliente = cliente.getNombreCliente();
+        this.direccion = cliente.getDireccion();
+        this.ciudad = cliente.getCiudad();
+        this.estado = cliente.getEstado();
+        this.pais = cliente.getPais();
+        this.codigoPostal = cliente.getCodigoPostal();
+
+        this.telefono = cliente.getTelefono();
+        this.correoElectronico = cliente.getCorreoElectronico();
+        this.terminoPago = cliente.getTerminoPago();
+        this.palabraTraduccion = cliente.getPalabraTraduccion();
+        this.palabraEdicion = cliente.getPalabraEdicion();
+        this.palabraProofreading = cliente.getPalabraProofreading();
+        this.horaTraduccion = cliente.getHoraTraduccion();
+        this.horaEdicion = cliente.getHoraEdicion();
+        this.horaProofreading = cliente.getHoraProofreading();
+
     }
 
     /**
@@ -374,6 +403,30 @@ public class Cliente implements Serializable {
      */
     public void setFacturas(List<Factura> facturas) {
         this.facturas = facturas;
+    }
+
+    /**
+     * Método que recibe como parámetro un objeto DtoCliente para actualizar los
+     * datos del cliente a partir de este.
+     * 
+     * @param cliente
+     */
+    public void actualizarDatos(DtoCliente cliente) {
+        this.setCorreoElectronico(cliente.getCorreoElectronico());
+        this.setTelefono(cliente.getTelefono());
+        this.setPalabraEdicion(cliente.getPalabraEdicion());
+        this.setPalabraProofreading(cliente.getPalabraProofreading());
+        this.setPalabraTraduccion(cliente.getPalabraTraduccion());
+        this.setHoraEdicion(cliente.getHoraEdicion());
+        this.setHoraProofreading(cliente.getHoraProofreading());
+        this.setHoraTraduccion(cliente.getHoraTraduccion());
+        this.setNombreCliente(cliente.getNombreCliente());
+        this.setDireccion(cliente.getDireccion());
+        this.setCiudad(cliente.getCiudad());
+        this.setEstado(cliente.getEstado());
+        this.setPais(cliente.getPais());
+        this.setCodigoPostal(cliente.getCodigoPostal());
+        this.setTerminoPago(cliente.getTerminoPago());
     }
 
 }
