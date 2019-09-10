@@ -113,6 +113,40 @@ class UsuarioTest {
 
 	}
 	
+	@Test
+	void getCiudadTest() {
+		
+		/** test de getter de Usuario.ciudad */
+		
+		assertTrue(usuarioTest.getCiudad().equals("ciudad"));
+
+	}
 	
+	@Test
+	void setCiudadTest() {
+		
+		/** test de setter de Usuario.ciudad */
+		usuarioTest.setCiudad("test");
+		assertTrue(usuarioTest.getCiudad().equals("test"));
+
+	}
+	
+	@Test
+	void getPaisTest() {
+		
+		/** test de getter de Usuario.pais */
+		
+		assertTrue(usuarioTest.getPais().equals("pais"));
+
+	}
+	
+	@Test
+	void setPaisTest() {
+		
+		/** test de setter de Usuario.pais */
+		usuarioTest.setPais("test");
+		assertTrue(usuarioTest.getPais().equals("test"));
+
+	}
 	
 }
