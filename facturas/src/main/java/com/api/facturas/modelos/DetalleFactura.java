@@ -48,7 +48,7 @@ public class DetalleFactura implements Serializable {
     /**
      * Método para obtener la factura que corresponde al detalle.
      * 
-     * @return factura
+     * @return {Factura} factura
      */
     public Factura getFactura() {
         return factura;
@@ -66,7 +66,7 @@ public class DetalleFactura implements Serializable {
     /**
      * Método para obtener el monto del detalle.
      * 
-     * @return monto
+     * @return {Double} monto
      */
     public double getMonto() {
         return monto;
@@ -84,7 +84,7 @@ public class DetalleFactura implements Serializable {
     /**
      * Método para obtener el id del detalle.
      * 
-     * @return idDetalleFactura
+     * @return {Long} idDetalleFactura
      */
     public Long getIdDetalleFactura() {
         return idDetalleFactura;
@@ -93,7 +93,7 @@ public class DetalleFactura implements Serializable {
     /**
      * Método para obtener la descripción del proyecto realizado.
      * 
-     * @return descripcionProyecto
+     * @return {String} descripcionProyecto
      */
     public String getDescripcionProyecto() {
         return descripcionProyecto;

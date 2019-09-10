@@ -34,7 +34,7 @@ public class EnvoltorioFactura {
     /**
      * Método para obtener la lista de detalles correspondientes a la factura.
      * 
-     * @return detalles
+     * @return {List<DetoDetalleFactura>} detalles
      */
     public List<DtoDetalleFactura> getDetalles() {
         return detalles;

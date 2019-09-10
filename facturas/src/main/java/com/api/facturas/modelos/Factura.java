@@ -75,7 +75,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener el número de la factura.
      * 
-     * @return numeroFactura
+     * @return {Long} numeroFactura
      */
     public Long getNumeroFactura() {
         return numeroFactura;
@@ -93,7 +93,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener el usuario al cual está relacionado la factura.
      * 
-     * @return usuario
+     * @return {Usuario} usuario
      */
     public Usuario getUsuario() {
         return usuario;
@@ -111,7 +111,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener la lista de detalles pertenecientes a la factura.
      * 
-     * @return detalleFactura
+     * @return {List<DetalleFactura>} detalleFactura
      */
     public List<DetalleFactura> getDetalleFactura() {
         return detalleFactura;
@@ -129,7 +129,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener el subtotal de la factura.
      * 
-     * @return subtotal
+     * @return {double} subtotal
      */
     public double getSubtotal() {
         return subtotal;
@@ -147,7 +147,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener los impuestos de la factura.
      * 
-     * @return impuestos
+     * @return {double} impuestos
      */
     public double getImpuestos() {
         return impuestos;
@@ -165,7 +165,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener el total de la factura.
      * 
-     * @return total
+     * @return {double} total
      */
     public double getTotal() {
         return total;
@@ -183,7 +183,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener la fecha de emisión de la factura.
      * 
-     * @return fechaFactura
+     * @return {Date} fechaFactura
      */
     public Date getFechaFactura() {
         return fechaFactura;
@@ -201,7 +201,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener la fecha de vencimiento de la factura.
      * 
-     * @return fechaVencimiento
+     * @return {Date} fechaVencimiento
      */
     public Date getFechaVencimiento() {
         return fechaVencimiento;
@@ -220,7 +220,7 @@ public class Factura implements Serializable {
      * Método para obtener las notas o los comentarios que haga el usuario en la
      * factura.
      * 
-     * @return
+     * @return {String} notas
      */
     public String getNotas() {
         return notas;
@@ -238,7 +238,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener el número de orden de compra de una factura.
      * 
-     * @return ordenCompra
+     * @return {String} ordenCompra
      */
     public String getOrdenCompra() {
         return ordenCompra;
@@ -256,7 +256,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener el cliente al cual se emite la factura.
      * 
-     * @return cliente
+     * @return {Cliente} cliente
      */
     public Cliente getCliente() {
         return cliente;
@@ -274,7 +274,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener id de la factura.
      * 
-     * @return idFactura
+     * @return {Long} idFactura
      */
     public Long getIdFactura() {
         return idFactura;
@@ -283,7 +283,7 @@ public class Factura implements Serializable {
     /**
      * Método para obtener el estado de la factura (paga o no paga).
      * 
-     * @return estaPagada
+     * @return {boolean} estaPagada
      */
     public boolean getEstaPagada() {
         return estaPagada;
