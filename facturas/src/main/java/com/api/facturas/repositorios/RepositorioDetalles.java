@@ -17,7 +17,7 @@ public interface RepositorioDetalles extends JpaRepository<DetalleFactura, Long>
      * para encontrar todos los detalles relacionados con la factura.
      * 
      * @param idFactura
-     * @return Lista de detalles
+     * @return {List<DetalleFactura>} Lista de detalles
      */
     @Query(value = "SELECT * FROM  detalle_factura D WHERE D.factura_id_factura = :idFactura", nativeQuery = true)
     List<DetalleFactura> listarDetalles(Long idFactura);

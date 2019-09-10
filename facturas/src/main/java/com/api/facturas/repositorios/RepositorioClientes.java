@@ -17,7 +17,7 @@ public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
      * SQL y buscar a todos los clientes relacionados con ese id de usuario.
      * 
      * @param idUsuario
-     * @return Lista de clientes
+     * @return {List<Cliente>}Lista de clientes
      */
     @Query(value = "SELECT * FROM clientes C WHERE C.usuario_id_usuario = :idUsuario", nativeQuery = true)
     List<Cliente> listarClientes(Long idUsuario);
@@ -27,7 +27,7 @@ public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
      * consulta SQL y buscar a un cliente por su nombre.
      * 
      * @param nombreCliente
-     * @return Cliente
+     * @return {Cliente} cliente
      */
     @Query(value = "SELECT * FROM clientes C WHERE C.nombre_cliente = :nombreCliente", nativeQuery = true)
     Cliente encontrarPorNombreCliente(String nombreCliente);
@@ -36,7 +36,7 @@ public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
      * Método que recibe como parámetro el id de un cliente para hacer una
      * consulta SQL y buscar a un cliente por su id.
      * @param idCliente
-     * @return Cliente
+     * @return {Cliente} cliente
      */
     @Query(value = "SELECT * FROM clientes C WHERE C.id_cliente = :idCliente", nativeQuery = true)
     Cliente encontrarPorId(Long idCliente);

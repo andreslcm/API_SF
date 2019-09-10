@@ -16,7 +16,7 @@ public interface RepositorioUsuarios extends JpaRepository<Usuario, Long> {
      * base de datos.
      * 
      * @param nombreUsuario
-     * @return Usuario
+     * @return {Usuario} usuario
      */
     @Query(value = "SELECT * FROM  usuarios U WHERE U.nombre_usuario = :nombreUsuario", nativeQuery = true)
     Usuario encontrarPorNombreUsuario(String nombreUsuario);
@@ -26,7 +26,7 @@ public interface RepositorioUsuarios extends JpaRepository<Usuario, Long> {
      * el correo ya existe en la base de datos.
      * 
      * @param correo
-     * @return Correo electrónico
+     * @return {String} Correo electrónico
      */
     @Query(value = "SELECT U.correo_electronico FROM usuarios U WHERE U.correo_electronico = :correo", nativeQuery = true)
     String correo(String correo);
@@ -36,7 +36,7 @@ public interface RepositorioUsuarios extends JpaRepository<Usuario, Long> {
      * su id y verificar si existe en la base de datos.
      * 
      * @param idUsuario
-     * @return
+     * @return {Usuario} usuario
      */
     @Query(value = "SELECT * FROM usuarios U WHERE U.id_usuario = :idUsuario", nativeQuery = true)
     Usuario encontrarPorId(Long idUsuario);
