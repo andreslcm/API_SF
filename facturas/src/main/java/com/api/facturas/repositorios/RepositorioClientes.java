@@ -1,6 +1,7 @@
 package com.api.facturas.repositorios;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.api.facturas.modelos.Cliente;
 
@@ -30,7 +31,7 @@ public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
      * @return {Cliente} cliente
      */
     @Query(value = "SELECT * FROM clientes C WHERE C.nombre_cliente = :nombreCliente", nativeQuery = true)
-    Cliente encontrarPorNombreCliente(String nombreCliente);
+    Optional<Cliente> encontrarPorNombreCliente(String nombreCliente);
 
     /**
      * Método que recibe como parámetro el id de un cliente para hacer una
@@ -39,5 +40,5 @@ public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
      * @return {Cliente} cliente
      */
     @Query(value = "SELECT * FROM clientes C WHERE C.id_cliente = :idCliente", nativeQuery = true)
-    Cliente encontrarPorId(Long idCliente);
+    Optional<Cliente> encontrarPorId(Long idCliente);
 }
