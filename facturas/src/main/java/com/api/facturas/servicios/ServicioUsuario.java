@@ -35,11 +35,22 @@ public class ServicioUsuario {
 
     /**
      * Método para saber si un nombre de usuario ya existe.
+     * 
      * @param nombreUsuario
-     * @return
+     * @return {boolean}
      */
-    public boolean verificacionNombreUsuario(String nombreUsuario) {   
-        return (repoUsuarios.nombreUsuario(nombreUsuario).isEmpty());
-    } 
+    public boolean verificacionNombreUsuario(String nombreUsuario) {
+        return (repoUsuarios.nombreUsuario(nombreUsuario).isPresent());
+    }
+
+    /**
+     * Método para saber si un correo ya existe.
+     * 
+     * @param correo
+     * @return {boolean}
+     */
+    public boolean verificacionCorreo(String correo) {
+        return (repoUsuarios.correo(correo).isPresent());
+    }
 
 }
