@@ -58,6 +58,14 @@ public class ServicioCliente {
         return listaClientes;
     }
 
-    
+    /**
+     * Método para eliminar a un cliente de la base de datos.
+     * 
+     * @param idCliente
+     */
+    public void eliminarCliente(Long idCliente) {
+        Cliente cliente = repoClientes.encontrarPorId(idCliente);
+        repoClientes.delete(cliente);
+    }
 
 }
