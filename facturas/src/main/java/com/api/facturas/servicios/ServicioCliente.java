@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.api.facturas.dtos.DtoCliente;
+import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
 import com.api.facturas.modelos.Usuario;
 import com.api.facturas.repositorios.RepositorioClientes;
@@ -64,8 +65,20 @@ public class ServicioCliente {
      * @param idCliente
      */
     public void eliminarCliente(Long idCliente) {
-        Cliente cliente = repoClientes.encontrarPorId(idCliente);
+        Cliente cliente = repoClientes.encontrarPorId(idCliente).orElseThrow(() -> new RecursoNoEncontrado("No hay ningún cliente con el ID número " + idCliente));
         repoClientes.delete(cliente);
+    }
+
+    /**
+     * Método para modificar los datos de un cliente existente en la base de datos.
+     * 
+     * @param cliente
+     * @param idCliente
+     */
+    public void modificarCliente(DtoCliente cliente, Long idCliente) {
+        Cliente cliente2 = repoClientes.encontrarPorId(idCliente).orElseThrow(() -> new RecursoNoEncontrado("No hay ningún cliente con el ID número " + idCliente));
+        cliente2.actualizarDatos(cliente);
+        repoClientes.save(cliente2);
     }
 
 }
