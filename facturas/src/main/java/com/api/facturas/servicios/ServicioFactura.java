@@ -90,4 +90,19 @@ public class ServicioFactura {
         return listaFacturas;
     }
 
+    /**
+     * Método para listar las facturas por cliente.
+     * 
+     * @param idCliente
+     * @return {List<DtoFactura> listaFacturas}
+     */
+    public List<DtoFactura> listarFacturasPorCliente(Long idCliente) {
+        List<DtoFactura> listaFacturas = new ArrayList<>();
+
+        repoFacturas.listarFacturasPorIdCliente(idCliente)
+                .forEach(factura -> listaFacturas.add(new DtoFactura(factura)));
+
+        return listaFacturas;
+    }
+
 }
