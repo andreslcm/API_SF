@@ -67,4 +67,15 @@ public class ServicioUsuario {
         repoUsuarios.save(usuario);
     }
 
+    /**
+     * Método para consultar los datos de un usuario.
+     * @param idUsuario
+     * @return {DtoUsuario} usuario
+     */
+    public DtoUsuario consultarDatos(Long idUsuario) {
+        DtoUsuario usuario = new DtoUsuario(repoUsuarios.findById(idUsuario)
+                .orElseThrow(() -> new RecursoNoEncontrado("No existe un usuario con el ID " + idUsuario)));
+        return usuario;
+    }
+
 }
