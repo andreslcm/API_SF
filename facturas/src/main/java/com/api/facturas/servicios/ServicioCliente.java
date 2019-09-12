@@ -75,10 +75,10 @@ public class ServicioCliente {
      * @param cliente
      * @param idCliente
      */
-    public void modificarCliente(DtoCliente cliente, Long idCliente) {
-        Cliente cliente2 = repoClientes.encontrarPorId(idCliente).orElseThrow(() -> new RecursoNoEncontrado("No hay ningún cliente con el ID número " + idCliente));
-        cliente2.actualizarDatos(cliente);
-        repoClientes.save(cliente2);
+    public void modificarCliente(DtoCliente clienteDto, Long idCliente) {
+        Cliente cliente = repoClientes.encontrarPorId(idCliente).orElseThrow(() -> new RecursoNoEncontrado("No hay ningún cliente con el ID número " + idCliente));
+        cliente.actualizarDatos(clienteDto);
+        repoClientes.save(cliente);
     }
 
 }
