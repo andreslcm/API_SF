@@ -1,6 +1,7 @@
 package com.api.facturas.repositorios;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.api.facturas.modelos.Factura;
 
@@ -40,7 +41,7 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
      * @return {Factura} Factura
      */
     @Query(value = "SELECT * FROM  facturas F WHERE F.id_factura = :idFactura", nativeQuery = true)
-    Factura encontrarFacturaPorId(Long idFactura);
+    Optional<Factura> encontrarFacturaPorId(Long idFactura);
 
     /**
      * Método que recibe un id y hace una consulta SQL para obtener el monto
@@ -80,7 +81,7 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
      * @return {Factura}
      */
     @Query(value = "SELECT * from facturas F WHERE F.esta_pagada = 0 and F.usuario_id_usuario = :idUsuario", nativeQuery = true)
-    Factura facturasNoPagas(Long idUsuario);
+    List<Factura> facturasNoPagas(Long idUsuario);
 
     /**
      * Muestra las facturas de los últimos 7 días.
