@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.api.facturas.dtos.DtoDetalleFactura;
+import com.api.facturas.dtos.DtoFactura;
 import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
 import com.api.facturas.modelos.DetalleFactura;
@@ -58,7 +59,7 @@ public class ServicioFactura {
         cliente.setFacturas(Arrays.asList(factura));
         usuario.setFacturas(Arrays.asList(factura));
 
-        //Se agregan los detalles correspondientes a cada factura.
+        // Se agregan los detalles correspondientes a cada factura.
         for (DtoDetalleFactura detalle : envoltorio.getDetalles()) {
             detalles.add(new DetalleFactura(detalle));
             detalles.get(auxiliar).setFactura(factura);
@@ -67,11 +68,26 @@ public class ServicioFactura {
 
         factura.setDetalleFactura(detalles);
 
-        //Se guarda la factura en la BD.
+        // Se guarda la factura en la BD.
         repoFacturas.save(factura);
 
-        //Se guarda cada detalle en la BD.
+        // Se guarda cada detalle en la BD.
         detalles.forEach(detalle -> repoDetalle.save(detalle));
+    }
+
+    /**
+     * Método para listar las facturas correspondientes a un usuario.
+     * 
+     * @param idUsuario
+     * @return {List<DtoFacturas>} listaFacturas
+     */
+    public List<DtoFactura> listarFacturas(Long idUsuario) {
+        List<DtoFactura> listaFacturas = new ArrayList<>();
+
+        repoFacturas.listarFacturasPorIdUsuario(idUsuario)
+                .forEach(factura -> listaFacturas.add(new DtoFactura(factura)));
+
+        return listaFacturas;
     }
 
 }
