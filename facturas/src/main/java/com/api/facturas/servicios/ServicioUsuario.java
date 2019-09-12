@@ -8,10 +8,12 @@ import com.api.facturas.repositorios.RepositorioFacturas;
 import com.api.facturas.repositorios.RepositorioUsuarios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * ServicioUsuario
  */
+@Service
 public class ServicioUsuario {
 
     @Autowired
