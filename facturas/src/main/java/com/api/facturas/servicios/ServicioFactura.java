@@ -105,4 +105,38 @@ public class ServicioFactura {
         return listaFacturas;
     }
 
+    /**
+     * Método para modificar una factura y sus detalles.
+     * 
+     * @param envoltorio
+     * @param idFactura
+     */
+    public void modificarFactura(EnvoltorioFactura envoltorio, Long idFactura) {
+
+        int auxiliar = 0;
+        Factura factura = repoFacturas.encontrarFacturaPorId(idFactura)
+                .orElseThrow(() -> new RecursoNoEncontrado("No existe una factura con el ID " + idFactura));
+        factura.actualizarFactura(envoltorio.getFactura());
+        List<DetalleFactura> detalles = repoDetalle.listarDetalles(idFactura);
+        List<DetalleFactura> borrarDetalles = new ArrayList<>();
+
+        // Se borran todos los detalles existentes para cargar los detalles nuevo.
+        detalles.forEach(detalle -> {
+            repoDetalle.delete(detalle);
+            borrarDetalles.add(detalle);
+        });
+
+        detalles.removeAll(borrarDetalles);
+
+        for (DtoDetalleFactura detalleDto : envoltorio.getDetalles()) {
+            detalles.add(new DetalleFactura(detalleDto));
+            detalles.get(auxiliar).setFactura(factura);
+            auxiliar++;
+        }
+
+        factura.setDetalleFactura(detalles);
+        detalles.forEach(detalle -> repoDetalle.save(detalle));
+        repoFacturas.save(factura);
+    }
+
 }
