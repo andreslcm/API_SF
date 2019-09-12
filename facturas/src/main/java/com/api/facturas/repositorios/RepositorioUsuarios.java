@@ -1,5 +1,7 @@
 package com.api.facturas.repositorios;
 
+import java.util.Optional;
+
 import com.api.facturas.modelos.Usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,7 +31,16 @@ public interface RepositorioUsuarios extends JpaRepository<Usuario, Long> {
      * @return {String} Correo electrónico
      */
     @Query(value = "SELECT U.correo_electronico FROM usuarios U WHERE U.correo_electronico = :correo", nativeQuery = true)
-    String correo(String correo);
+    Optional<String> correo(String correo);
+
+    /**
+     * Método para saber si un nombre de usuario ya existe,
+     * 
+     * @param nombreUsuario
+     * @return {String} nombreUsuario
+     */
+    @Query(value = "SELECT U.nombre_usuario FROM usuarios U WHERE U.nombre_usuario = :nombreUsuario", nativeQuery = true)
+    Optional<String> nombreUsuario(String nombreUsuario);
 
     /**
      * Método que recibe un id y hace una consulta SQL para buscar a un usuario por

@@ -33,6 +33,13 @@ public class ServicioUsuario {
         return repoUsuarios.save(usuario);
     }
 
-    
+    /**
+     * Método para saber si un nombre de usuario ya existe.
+     * @param nombreUsuario
+     * @return
+     */
+    public boolean verificacionNombreUsuario(String nombreUsuario) {   
+        return (repoUsuarios.nombreUsuario(nombreUsuario).isEmpty());
+    } 
 
 }
