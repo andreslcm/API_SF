@@ -1,6 +1,7 @@
 package com.api.facturas.servicios;
 
 import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Usuario;
 import com.api.facturas.repositorios.RepositorioClientes;
 import com.api.facturas.repositorios.RepositorioFacturas;
@@ -51,6 +52,19 @@ public class ServicioUsuario {
      */
     public boolean verificacionCorreo(String correo) {
         return (repoUsuarios.correo(correo).isPresent());
+    }
+
+    /**
+     * Método para actualizar los datos de un usuario.
+     * 
+     * @param usuarioDto
+     * @param idUsuario
+     */
+    public void actualizarDatos(DtoUsuario usuarioDto, Long idUsuario) {
+        Usuario usuario = repoUsuarios.findById(idUsuario)
+                .orElseThrow(() -> new RecursoNoEncontrado("No existe un usuario con el ID " + idUsuario));
+        usuario.actualizarDatos(usuarioDto);
+        repoUsuarios.save(usuario);
     }
 
 }
