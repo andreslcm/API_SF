@@ -2,9 +2,12 @@ package com.api.facturas.seguridad;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -70,9 +73,19 @@ public class HerramientaToken implements Serializable {
      * @param token
      * @return {Boolean} vencimiento
      */
-    private Boolean tokenVencido(String token) {
+    private Boolean tokenVencido (String token) {
         final Date vencimiento = obtenerFechaVencimientoToken(token);
         return vencimiento.before(new Date());
+    }
+
+      /**
+       * Método para generar un token para un usuario específico.
+       * @param detallesUsuario
+       * @return {String} generacionToken
+       */
+      public String generarToken(UserDetails detallesUsuario){
+        Map<String, Object> claims = new HashMap<>();
+        return generacionToken(claims, detallesUsuario.getUsername());   
     }
 
 }
