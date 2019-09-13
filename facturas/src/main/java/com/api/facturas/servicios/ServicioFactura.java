@@ -157,4 +157,18 @@ public class ServicioFactura {
         });
     }
 
+    /**
+     * Método para marcar una factura como pagada.
+     * @param idFactura
+     */
+    public void pagarFactura(List<Long> idFactura) {
+        
+        idFactura.forEach(id -> {
+            Factura factura = repoFacturas.encontrarFacturaPorId(id)
+                    .orElseThrow(() -> new RecursoNoEncontrado("No existe ninguna factura con el ID " + idFactura));
+            factura.setEstaPagada(true);
+            repoFacturas.save(factura);
+        });
+    }
+
 }
