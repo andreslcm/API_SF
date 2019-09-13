@@ -1,6 +1,8 @@
 package com.api.facturas.seguridad;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -34,6 +36,20 @@ public class HerramientaToken implements Serializable {
      */
     public Date obtenerFechaVencimientoToken(String token) {
         return obtenerClaimToken(token, Claims::getExpiration);
+    }
+
+    /**
+     * Método para obtener la 'Claim' del token.
+     * 
+     * @param <T>
+     * @param token
+     * @param resolvedorClaims
+     * @return T resolvedorClaims
+     */
+    private <T> T obtenerClaimToken(String token, Function<Claims, T> resolvedorClaims) {
+        final Claims claims = obtenerTodasClaimsToken(token);
+        return resolvedorClaims.apply(claims);
+
     }
 
 }
