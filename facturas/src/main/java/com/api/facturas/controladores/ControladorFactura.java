@@ -1,5 +1,8 @@
 package com.api.facturas.controladores;
 
+import java.util.List;
+
+import com.api.facturas.dtos.DtoFactura;
 import com.api.facturas.modelos.EnvoltorioFactura;
 import com.api.facturas.servicios.ServicioFactura;
 
@@ -7,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +34,7 @@ public class ControladorFactura {
      * @param envoltorio
      * @param idUsuario
      * @param idCliente
-     * @return
+     * @return {ResponseEntity<>}
      */
     @PostMapping("crear-factura/{idUsuario}")
     public ResponseEntity<?> agregarFactura(@RequestBody EnvoltorioFactura envoltorio,
@@ -38,5 +42,18 @@ public class ControladorFactura {
 
         servicio.agregarFactura(envoltorio, idUsuario, idCliente);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    /**
+     * Método para listar todas las facturas de un usuario
+     * 
+     * @param idUsuario
+     * @return {ResponseEntity<>}
+     */
+    @GetMapping("listar-facturas/{idUsuario}")
+    public ResponseEntity<?> listarFacturas(@PathVariable Long idUsuario) {
+
+        List<DtoFactura> listaFacturas = servicio.listarFacturas(idUsuario);
+        return new ResponseEntity<>(listaFacturas, HttpStatus.OK);
     }
 }
