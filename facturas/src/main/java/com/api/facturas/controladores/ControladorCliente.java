@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,13 +45,25 @@ public class ControladorCliente {
      * Método para listar los clientes de un usuario.
      * 
      * @param idUsuario
-     * @return
+     * @return {ResponseEntity<>}
      */
     @GetMapping("listar-clientes/{idUsuario}")
     public ResponseEntity<?> listarCliente(@PathVariable("idUsuario") Long idUsuario) {
 
         List<DtoCliente> listaClientes = servicio.listarClientes(idUsuario);
         return new ResponseEntity<>(listaClientes, HttpStatus.OK);
+    }
+
+    /**
+     * Método para eliminar a un cliente de la BD.
+     * @param idCliente
+     * @return {ResponseEntity<>}
+     */
+    @DeleteMapping("prueba_borrar_cliente/{idCliente}")
+    public ResponseEntity<?> eliminarCliente(@PathVariable("idCliente") Long idCliente) {
+            
+            servicio.eliminarCliente(idCliente);
+            return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
