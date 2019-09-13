@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +30,7 @@ public class ControladorUsuario {
      * @param usuario
      * @return {ResponseEntity<>}
      */
-    @PostMapping("/prueba_registro")
+    @PostMapping("/registro")
     public ResponseEntity<?> registrarUsuario(@RequestBody DtoUsuario usuario) {
 
         if (servicio.verificacionCorreo(usuario.getCorreo())) {
@@ -38,6 +40,19 @@ public class ControladorUsuario {
         }
 
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    /**
+     * Método para actualizar los datos del usuario.
+     * @param usuarioDto
+     * @param idUsuario
+     * @return {ResponseEntity<>}
+     */
+    @PutMapping("/actualizar-datos/{idUsuario}")
+    public ResponseEntity<?> actualizarDatos(@RequestBody DtoUsuario usuarioDto, @PathVariable(value = "idUsuario") Long idUsuario){
+        
+        servicio.actualizarDatos(usuarioDto, idUsuario);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
