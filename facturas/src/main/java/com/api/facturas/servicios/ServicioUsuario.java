@@ -1,38 +1,42 @@
 package com.api.facturas.servicios;
 
+import java.util.ArrayList;
+
 import com.api.facturas.dtos.DtoUsuario;
 import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Usuario;
-import com.api.facturas.repositorios.RepositorioClientes;
-import com.api.facturas.repositorios.RepositorioFacturas;
 import com.api.facturas.repositorios.RepositorioUsuarios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
  * ServicioUsuario
  */
 @Service
-public class ServicioUsuario {
+public class ServicioUsuario implements UserDetailsService {
 
     @Autowired
-    RepositorioFacturas repoFacturas;
+    private RepositorioUsuarios repoUsuarios;
 
     @Autowired
-    RepositorioClientes repoClientes;
-
-    @Autowired
-    RepositorioUsuarios repoUsuarios;
+    private PasswordEncoder codificador;
 
     /**
      * Método para guardar un usuario en la base de datos a partir de un DTO.
+     * Utiliza un codificador para encriptar la clave del usuario antes de guardarla
+     * en la BD.
      * 
      * @param usuarioDto
      * @return
      */
     public Usuario crearusUario(DtoUsuario usuarioDto) {
         Usuario usuario = new Usuario(usuarioDto);
+        usuario.setContrasena(codificador.encode(usuarioDto.getContrasena()));
         return repoUsuarios.save(usuario);
     }
 
@@ -71,6 +75,7 @@ public class ServicioUsuario {
 
     /**
      * Método para consultar los datos de un usuario.
+     * 
      * @param idUsuario
      * @return {DtoUsuario} usuario
      */
@@ -78,6 +83,21 @@ public class ServicioUsuario {
         DtoUsuario usuario = new DtoUsuario(repoUsuarios.findById(idUsuario)
                 .orElseThrow(() -> new RecursoNoEncontrado("No existe un usuario con el ID " + idUsuario)));
         return usuario;
+    }
+
+    /**
+     * Método sobrescrito de la interfaz implementada UserDetailsService, que
+     * verifica que exista el nombre de usuario y que la contraseña provista sea
+     * correcta.
+     */
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Usuario usuario = repoUsuarios.encontrarPorNombreUsuario(username);
+        if (usuario == null) {
+            throw new UsernameNotFoundException("No existe ningún usuario con el nombre " + username);
+        }
+        return new org.springframework.security.core.userdetails.User(usuario.getNombreUsuario(),
+                usuario.getContrasena(), new ArrayList<>());
     }
 
 }
