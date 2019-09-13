@@ -7,6 +7,7 @@ import java.util.function.Function;
 import org.springframework.beans.factory.annotation.Value;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 
 /**
  * HerramientaToken
@@ -16,7 +17,7 @@ public class HerramientaToken implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final long JWT_TOKEN_VALIDACION = 5 * 60 * 60;
     @Value("$jwt.secret")
-    private String secreto;
+    private String secreta;
 
     /**
      * Método para recuperar el nombre de usuario del token.
@@ -49,7 +50,17 @@ public class HerramientaToken implements Serializable {
     private <T> T obtenerClaimToken(String token, Function<Claims, T> resolvedorClaims) {
         final Claims claims = obtenerTodasClaimsToken(token);
         return resolvedorClaims.apply(claims);
+    }
 
+    /**
+     * Método para recuperar cualquier información del token a partir de la clave
+     * secreta.
+     * 
+     * @param token
+     * @return {Claims}
+     */
+    private Claims obtenerTodasClaimsToken(String token) {
+        return Jwts.parser().setSigningKey(secreta).parseClaimsJws(token).getBody();
     }
 
 }
