@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 /**
  * HerramientaToken
@@ -73,19 +74,34 @@ public class HerramientaToken implements Serializable {
      * @param token
      * @return {Boolean} vencimiento
      */
-    private Boolean tokenVencido (String token) {
+    private Boolean tokenVencido(String token) {
         final Date vencimiento = obtenerFechaVencimientoToken(token);
         return vencimiento.before(new Date());
     }
 
-      /**
-       * Método para generar un token para un usuario específico.
-       * @param detallesUsuario
-       * @return {String} generacionToken
-       */
-      public String generarToken(UserDetails detallesUsuario){
+    /**
+     * Método para generar un token para un usuario específico.
+     * 
+     * @param detallesUsuario
+     * @return {String} generacionToken
+     */
+    public String generarToken(UserDetails detallesUsuario) {
         Map<String, Object> claims = new HashMap<>();
-        return generacionToken(claims, detallesUsuario.getUsername());   
+        return generacionToken(claims, detallesUsuario.getUsername());
+    }
+
+    /**
+     * Método que implementa la generación del token. Aplica algoritmo de hasheo y
+     * asigna tiempo de validez.
+     * 
+     * @param claims
+     * @param sujeto
+     * @return {String}
+     */
+    private String generacionToken(Map<String, Object> claims, String sujeto) {
+        return Jwts.builder().setClaims(claims).setSubject(sujeto).setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDACION * 1000))
+                .signWith(SignatureAlgorithm.HS512, secreta).compact();
     }
 
 }
