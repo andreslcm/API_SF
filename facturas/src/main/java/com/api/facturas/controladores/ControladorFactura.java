@@ -98,4 +98,17 @@ public class ControladorFactura {
         servicio.eliminarFactura(idFactura);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    /**
+     * Método para marcar una factura como pagada.
+     * 
+     * @param idFactura
+     * @return {ResponseEntity<>}
+     */
+    @PutMapping("marcar-como-pagada/{idFactura}")
+    public ResponseEntity<?> pagarFactura(@PathVariable List<Long> idFactura) {
+
+        servicio.pagarFactura(idFactura);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
