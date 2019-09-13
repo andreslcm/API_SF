@@ -71,10 +71,9 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests().antMatchers("/autenticar", "/registrar_usuario").permitAll()
+        http.csrf().disable().authorizeRequests().antMatchers("/login", "/registro").permitAll()
                 .anyRequest().authenticated().and().exceptionHandling().authenticationEntryPoint(entrada).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
         // Filtro para validar los tokens con cada solicitud
         http.addFilterBefore(filtro, UsernamePasswordAuthenticationFilter.class);
     }

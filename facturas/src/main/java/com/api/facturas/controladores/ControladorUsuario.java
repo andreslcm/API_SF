@@ -114,9 +114,9 @@ public class ControladorUsuario {
         try {
           autenticador.authenticate(new UsernamePasswordAuthenticationToken(nombreUsuario, contrasena));
         } catch (DisabledException e){
-            throw new Exception("USUARIO_BLOEQUEADO", e);
+            throw new Exception("USUARIO BLOEQUEADO", e);
         } catch (BadCredentialsException e){
-            throw new Exception("CREDENCIALES_INVÁLIDAS", e);
+            throw new Exception("CREDENCIALES INVÁLIDAS", e);
         }
     }
 }
