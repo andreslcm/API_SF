@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -69,4 +70,20 @@ public class ControladorFactura {
         List<DtoFactura> listaFacturas = servicio.listarFacturasPorCliente(idCliente);
         return new ResponseEntity<>(listaFacturas, HttpStatus.OK);
     }
+
+    /**
+     * Método para actualizar datos de una factura
+     * 
+     * @param envoltorio
+     * @param idFactura
+     * @return {ResponseEntity<>}
+     */
+    @PutMapping("actualizar-factura/{idFactura}")
+    public ResponseEntity<?> modificarFactura(@RequestBody EnvoltorioFactura envoltorio, @PathVariable Long idFactura) {
+
+        servicio.modificarFactura(envoltorio, idFactura);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    
 }
