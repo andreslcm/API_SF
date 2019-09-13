@@ -56,4 +56,17 @@ public class ControladorFactura {
         List<DtoFactura> listaFacturas = servicio.listarFacturas(idUsuario);
         return new ResponseEntity<>(listaFacturas, HttpStatus.OK);
     }
+
+    /**
+     * Método para listar las facturas por cliente.
+     * 
+     * @param idCliente
+     * @return{ResponseEntity<>}
+     */
+    @GetMapping("facturas-cliente/{idCliente}")
+    public ResponseEntity<?> listarFacturasPorCliente(@PathVariable Long idCliente) {
+
+        List<DtoFactura> listaFacturas = servicio.listarFacturasPorCliente(idCliente);
+        return new ResponseEntity<>(listaFacturas, HttpStatus.OK);
+    }
 }
