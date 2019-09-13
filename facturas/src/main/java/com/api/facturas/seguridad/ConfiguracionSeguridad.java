@@ -3,9 +3,11 @@ package com.api.facturas.seguridad;
 import com.api.facturas.servicios.ServicioUsuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 
@@ -15,7 +17,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class ConfiguracionSeguridad {
+public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private ServicioUsuario servicio;
@@ -23,16 +25,30 @@ public class ConfiguracionSeguridad {
     private PuntoEntradaAutenticacion entrada;
     @Autowired
     FiltroSolicitud filtro;
-    
+
     /**
      * Método para hacer la configuración global,
+     * 
      * @param autenticador
      * @throws Exception
      */
     @Autowired
-    public void configuracionGlobal (AuthenticationManagerBuilder autenticador) throws Exception {
-        //Configurar el AuthManager para que sepa dónde cargar el usuario para comparar las credenciales. Usar BCryptPasswordEncoder
+    public void configuracionGlobal(AuthenticationManagerBuilder autenticador) throws Exception {
+        // Configurar el AuthManager para que sepa dónde cargar el usuario para comparar
+        // las credenciales. Usar BCryptPasswordEncoder
         autenticador.userDetailsService(servicio).passwordEncoder(passwordEncoder());
     }
-    
+
+    /**
+     * Método para gestionar las autenticaciones.
+     * 
+     * @return AuthenticationManager
+     * @throws Exception
+     */
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
 }
