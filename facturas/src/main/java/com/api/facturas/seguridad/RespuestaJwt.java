@@ -21,6 +21,7 @@ public class RespuestaJwt implements Serializable {
 
     /**
      * Método para obtener el token.
+     * 
      * @return {String} tokenJwt
      */
     public String getTokenJwt() {
