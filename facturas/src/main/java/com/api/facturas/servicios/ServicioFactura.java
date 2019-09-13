@@ -139,4 +139,22 @@ public class ServicioFactura {
         repoFacturas.save(factura);
     }
 
+    /**
+     * Método para eliminar una factura de la BD.
+     * 
+     * @param idFactura
+     */
+    public void eliminarFactura(List<Long> idFactura) {
+
+        idFactura.forEach(id -> {
+            List<DetalleFactura> detalles = repoDetalle.listarDetalles(id);
+            repoDetalle.deleteAll(detalles);
+        });
+        idFactura.forEach(id -> {
+            Factura factura = repoFacturas.encontrarFacturaPorId(id)
+                    .orElseThrow(() -> new RecursoNoEncontrado("No existe ninguna factura con el ID " + idFactura));
+            repoFacturas.delete(factura);
+        });
+    }
+
 }
