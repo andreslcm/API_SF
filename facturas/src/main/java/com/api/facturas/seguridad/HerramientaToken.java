@@ -104,4 +104,16 @@ public class HerramientaToken implements Serializable {
                 .signWith(SignatureAlgorithm.HS512, secreta).compact();
     }
 
+    /**
+     * Método para validar el token.
+     * 
+     * @param token
+     * @param detallesUsuario
+     * @return {Boolean}
+     */
+    public Boolean validarToken(String token, UserDetails detallesUsuario) {
+        final String nombreUsuario = getNombreUsuarioToken(token);
+        return (nombreUsuario.equals(detallesUsuario.getUsername()) && !tokenVencido(token));
+    }
+
 }
