@@ -63,4 +63,16 @@ public class HerramientaToken implements Serializable {
         return Jwts.parser().setSigningKey(secreta).parseClaimsJws(token).getBody();
     }
 
+    // Revisar si el token está vencido
+    /**
+     * Método para revisar si el token está vencido.
+     * 
+     * @param token
+     * @return {Boolean} vencimiento
+     */
+    private Boolean tokenVencido(String token) {
+        final Date vencimiento = obtenerFechaVencimientoToken(token);
+        return vencimiento.before(new Date());
+    }
+
 }
