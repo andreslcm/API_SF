@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,7 +39,7 @@ public class ControladorCliente {
             @PathVariable("idUsuario") Long idUsuario) {
 
         servicio.agregarCliente(cliente, idUsuario);
-        return new ResponseEntity<>("OK", HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     /**
@@ -59,11 +60,24 @@ public class ControladorCliente {
      * @param idCliente
      * @return {ResponseEntity<>}
      */
-    @DeleteMapping("prueba_borrar_cliente/{idCliente}")
+    @DeleteMapping("borrar-cliente/{idCliente}")
     public ResponseEntity<?> eliminarCliente(@PathVariable("idCliente") Long idCliente) {
             
             servicio.eliminarCliente(idCliente);
             return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    /**
+     * Método para actualizar datos de un cliente.
+     * @param cliente
+     * @param idCliente
+     * @return{ResponseEntity<>}
+     */
+    @PutMapping("actualizar-cliente/{idCliente}")
+    public ResponseEntity<?> actualizarDatosCliente(@RequestBody DtoCliente cliente, @PathVariable Long idCliente){
+        
+        servicio.modificarCliente(cliente, idCliente);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
