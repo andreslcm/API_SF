@@ -69,6 +69,8 @@ public class ServicioUsuario implements UserDetailsService {
     public void actualizarDatos(DtoUsuario usuarioDto, Long idUsuario) {
         Usuario usuario = repoUsuarios.findById(idUsuario)
                 .orElseThrow(() -> new RecursoNoEncontrado("No existe un usuario con el ID " + idUsuario));
+
+        usuarioDto.setContrasena(codificador.encode(usuarioDto.getContrasena()));
         usuario.actualizarDatos(usuarioDto);
         repoUsuarios.save(usuario);
     }
