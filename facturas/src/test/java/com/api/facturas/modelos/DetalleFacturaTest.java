@@ -11,19 +11,17 @@ import org.junit.Test;
 import com.api.facturas.dtos.DtoFactura;
 
 class DetalleFacturaTest {
-	
+
 	/** DetalleFactura para usar en varios test */
-	
+
 	DetalleFactura detalletest;
 	Factura facturatest;
-
 
 	@BeforeClass
 	void setUp() {
 
 		/** seteado de variables para todas las pruebas */
-		
-		
+
 		detalletest = new DetalleFactura("test", 1000);
 		facturatest = new factura(1000, new Date());
 
@@ -37,8 +35,7 @@ class DetalleFacturaTest {
 		assertNotNull(detalletest);
 		assertTrue(detalletest instanceof DetalleFactura);
 	}
-	
-	
+
 	@Test
 	void getDescripcionProyectoTest() {
 
@@ -57,7 +54,7 @@ class DetalleFacturaTest {
 		assertTrue(detalletest.getDescripcionProyecto().equals("test"));
 
 	}
-	
+
 	@Test
 	void getMontoTest() {
 
@@ -76,15 +73,14 @@ class DetalleFacturaTest {
 		assertTrue(detalletest.getMonto() == 10);
 
 	}
-	
+
 	@test
 	void setAndgetFacturaTest() {
-		
-		/**test de getter y setter de DetalleFactura.factura */
-		
+
+		/** test de getter y setter de DetalleFactura.factura */
+
 		detalletest.setFactura(facturatest);
 		assertTrue(detalletest.getFactura().equals(facturatest));
 	}
-
 
 }
