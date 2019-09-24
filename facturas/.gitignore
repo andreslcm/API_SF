@@ -29,5 +29,7 @@ build/
 
 ### VS Code ###
 .vscode/
-
 *.class
+bin/
+
+application.properties
