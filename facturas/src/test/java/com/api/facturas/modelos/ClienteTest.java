@@ -30,13 +30,12 @@ class ClienteTest {
 
 		/** seteado de variables para todas las pruebas */
 
-		Cliente testcliente = new Cliente("nombre", "direccion", "ciudad", "estado", "pais", "codigopostal");
-		DtoCliente dtoTest = new DtoCliente("dtonombre", "dtodireccion", "dtociudad", "dtoestado", "dtopais",
-				"dtocodigopostal");
+		Cliente testcliente = new Cliente();
+		DtoCliente dtoTest = new DtoCliente();
 		facturasTest = new ArrayList<Factura>();
-		facturasTest.add(new Factura(1234, 4321));
+		facturasTest.add(new Factura());
 		clientesTest = new ArrayList<Cliente>();
-		clientesTest.add(new Cliente("nombreCliente", "direccion", "ciudad", "estado", "pais", "codigoPostal"));
+		clientesTest.add(new Cliente());
 
 	}
 
@@ -172,7 +171,7 @@ class ClienteTest {
 
 		/** test de getter de Cliente.codigo */
 
-		assertTrue(testcliente.getCorreo().equals("codigo"));
+		assertTrue(testcliente.getCorreoElectronico().equals("codigo"));
 
 	}
 
@@ -191,7 +190,7 @@ class ClienteTest {
 
 		/** test de getter de Cliente.nombre */
 
-		assertTrue(testcliente.getNombre().equals("nombre"));
+		assertTrue(testcliente.getNombreCliente().equals("nombre"));
 
 	}
 
@@ -200,8 +199,8 @@ class ClienteTest {
 
 		/** test de setter de Cliente.nombre */
 
-		testcliente.setNombre("test");
-		assertTrue(testcliente.getNombre().equals("test"));
+		testcliente.setNombreCliente("test");
+		assertTrue(testcliente.getNombreCliente().equals("test"));
 
 	}
 
