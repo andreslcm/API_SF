@@ -25,12 +25,11 @@ class FacturaTest {
 
 		/** seteado de variables para todas las pruebas */
 		datetest = new Date();
-		testfactura = new Factura(1000, new Date());
-		dtoTest = new DtoFactura(1001, new Date());
-		facturasTest = new ArrayList<Factura>();
-		facturasTest.add(new DetalleFactura("test", 4321));
-		usuariotest = new Usuario("nombre", "apellido", "nombreusuario", "contraseña", "correo", "direccion", "ciudad",
-				"estado", "pais", "codigopostal", "telefono");
+		testfactura = new Factura();
+		dtoTest = new DtoFactura();
+		facturasTest = new ArrayList<DetalleFactura>();
+		facturasTest.add(new DetalleFactura());
+		usuariotest = new Usuario();
 
 	}
 
@@ -46,7 +45,7 @@ class FacturaTest {
 		assertTrue(constructorTest instanceof Factura);
 	}
 
-	@test
+	@Test
 	void setAndgetUsuarioTest() {
 
 		/** test de getter y setter de Factura.usuario */
@@ -55,32 +54,13 @@ class FacturaTest {
 		assertTrue(testfactura.getUsuario().equals(usuariotest));
 	}
 
-	@test
+	@Test
 	void setAndgetDetalleFacturaTest() {
 
 		/** test de getter y setter de Factura.detalleFactura */
 
 		testfactura.setDetalleFactura(facturasTest);
 		assertTrue(testfactura.getDetalleFactura().equals(facturasTest));
-	}
-
-	@Test
-	void setNotasTest() {
-
-		/** test de setter de Factura.Notas */
-
-		testfactura.setNotas("test");
-		assertTrue(testfactura.getNotas().equals("test"));
-
-	}
-
-	@Test
-	void getNotasTest() {
-
-		/** test de getter de Factura.Notas */
-
-		assertTrue(testfactura.getNotas().equals("test"));
-
 	}
 
 	@Test
