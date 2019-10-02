@@ -22,8 +22,8 @@ class DetalleFacturaTest {
 
 		/** seteado de variables para todas las pruebas */
 
-		detalletest = new DetalleFactura("test", 1000);
-		facturatest = new factura(1000, new Date());
+		detalletest = new DetalleFactura();
+		facturatest = new Factura();
 
 	}
 
@@ -74,7 +74,7 @@ class DetalleFacturaTest {
 
 	}
 
-	@test
+	@Test
 	void setAndgetFacturaTest() {
 
 		/** test de getter y setter de DetalleFactura.factura */

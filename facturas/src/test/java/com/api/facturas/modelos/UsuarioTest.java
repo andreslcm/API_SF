@@ -31,14 +31,12 @@ class UsuarioTest {
 		
 		/** seteado de variables para todas las pruebas */
 		
-	Usuario usuarioTest = new Usuario("nombre", "apellido", "nombreusuario", "contraseña", "correo", "direccion", 
-            "ciudad", "estado", "pais", "codigopostal", "telefono");
-	DtoUsuario dtoTest = new DtoUsuario("dtonombre", "dtoapellido", "dtonombreusuario", "dtocontraseña", "dtocorreo", "dtodireccion", 
-            "dtociudad", "dtoestado", "dtopais", "dtocodigopostal", "dtotelefono");
+	Usuario usuarioTest = new Usuario();
+	DtoUsuario dtoTest = new DtoUsuario();
 	facturasTest = new ArrayList<Factura>();
-	facturasTest.add(new Factura(1234,4321));
+	facturasTest.add(new Factura());
 	clientesTest = new ArrayList<Cliente>();
-	clientesTest.add(new Cliente("nombreCliente", "direccion", "ciudad", "estado", "pais","codigoPostal"));
+	clientesTest.add(new Cliente());
 	
 	}
 	
@@ -65,22 +63,11 @@ class UsuarioTest {
 	}
 	
 	@Test
-	void setIdUsuarioTest() {
-		
-		/** test de setter de Usuario.IdUsuario */
-		
-		usuarioTest.setIdUsuario(1234);
-		assertNotNull(usuarioTest.getIdUsuario());
-		assertTrue(usuarioTest.getIdUsuario() == 1234);
-
-	}
-	
-	@Test
 	void getFacturasTest() {
 		
 		/** test de getter de Usuario.facturas */
 		
-		assertTrue(usuarioTest.getFacturas() instanceof List<Factura>);
+		assertTrue(usuarioTest.getFacturas() instanceof ArrayList<?>);
 
 	}
 	
@@ -99,7 +86,7 @@ class UsuarioTest {
 		
 		/** test de getter de Usuario.clientes */
 		
-		assertTrue(usuarioTest.getClientes() instanceof List<Cliente>);
+		assertTrue(usuarioTest.getClientes() instanceof List<?>);
 
 	}
 	
@@ -108,7 +95,7 @@ class UsuarioTest {
 		
 		/** test de setter de Usuario.clientes */
 		
-		usuarioTest.setCliente(clientesTest);
+		usuarioTest.setClientes(clientesTest);
 		assertTrue(usuarioTest.getClientes().equals(clientesTest));
 
 	}
@@ -252,7 +239,7 @@ class UsuarioTest {
 		
 		/** test de getter de Usuario.contraseña */
 		
-		assertTrue(usuarioTest.getContraseña().equals("contraseña"));
+		assertTrue(usuarioTest.getContrasena().equals("contraseña"));
 
 	}
 	
@@ -261,8 +248,8 @@ class UsuarioTest {
 		
 		/** test de setter de Usuario.contraseña */
 		
-		usuarioTest.setContraseña("test");
-		assertTrue(usuarioTest.getContraseña().equals("test"));
+		usuarioTest.setContrasena("test");
+		assertTrue(usuarioTest.getContrasena().equals("test"));
 
 	}
 	
@@ -271,8 +258,8 @@ class UsuarioTest {
 		
 		/** test de setter de Usuario.paylPal */
 		
-		usuarioTest.setDatosPaylpal("test");
-		assertTrue(usuarioTest.getDatosPaylpal().equals("test"));
+		usuarioTest.setDatosPaypal("test");
+		assertTrue(usuarioTest.getDatosPaypal().equals("test"));
 
 	}
 	
