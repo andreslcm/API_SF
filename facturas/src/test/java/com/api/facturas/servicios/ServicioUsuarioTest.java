@@ -25,7 +25,9 @@ class ServicioUsuarioTest {
 		
 	/**  setUp de DtoUsuario para usar en los test  */
 		
-		usuarioTest = new DtoUsuario((long) 117, "testn", "testa", "testnu","testc","testcor","testdir","testcid","testes","testpa","testcod","testtel","testdb","testdp","testpayoneer"));
+		usuarioTest = new DtoUsuario((long) 117, "testn", "testa", "testnu",
+				"testc","testcor","testdir","testcid","testes","testpa",
+				"testcod","testtel","testdb","testdp","testpayoneer");
 		
 	}
 	
@@ -40,6 +42,27 @@ class ServicioUsuarioTest {
 		assertTrue(testy instanceof Usuario);
 		assertTrue(testy.equals(new Usuario(usuarioTest)));
 	}
+	
+	@Test
+	void verificacionNombreUsuarioTest() {
+		
+		/** test de ServicioUsuario.verificacionNombreUsuario() */
+		
+		assertTrue(servicioTest.verificacionNombreUsuario("testnu"));
+		assertFalse(servicioTest.verificacionNombreUsuario("testnuuuuu"));
+	}
+	
+	@Test
+	void verificacionCorreoTest() {
+		
+		/** test de ServicioUsuario.verificacionCorreo() */
+		
+		assertTrue(servicioTest.verificacionNombreUsuario("testcor"));
+		assertFalse(servicioTest.verificacionNombreUsuario("testcoooooooooooooooor"));
+	}
+	
+	
+	
 	
 	
 
