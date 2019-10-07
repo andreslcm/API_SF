@@ -61,7 +61,27 @@ class ServicioUsuarioTest {
 		assertFalse(servicioTest.verificacionNombreUsuario("testcoooooooooooooooor"));
 	}
 	
+	@Test
+	void actualizarDatosTest() {
+		
+		/** test de ServicioUsuario.actualizarDatos() */
+		
+		servicioTest.actualizarDatos(new DtoUsuario((long) 117, "testn", "testa", "actualizartest",
+				"testc","testcor","testdir","testcid","testes","testpa",
+				"testcod","testtel","testdb","testdp","testpayoneer"), (long)117);
+		assertTrue(servicioTest.verificacionNombreUsuario("actualizartest"));
+	}
 	
+	@Test
+	void consultarDatosTest() {
+		
+		/** test de ServicioUsuario.consultarDatos() */
+		
+		assertTrue(servicioTest.consultarDatos((long)117).equals(usuarioTest));
+	}
+	
+
+
 	
 	
 	
