@@ -43,6 +43,19 @@ public class DtoFactura {
         this.estaPagada = factura.getEstaPagada();
         this.idFactura = factura.getIdFactura();
     }
+    /**
+     * Constructor para propositos de testeo
+     * 
+     * 
+     * @param id,numfac, orden, fechafac, fechaven, sobtot, imp, total, notas,
+     *  pagada
+     */
+    
+    public DtoFactura(Long id, Long numfac, String orden, Date fechafac,
+    		Date fechaven, Double subtot, Double imp, Double total,
+    		String notas, boolean pagada) {
+    	
+    }
 
     /**
      * Método para obtener el número de la factura.
