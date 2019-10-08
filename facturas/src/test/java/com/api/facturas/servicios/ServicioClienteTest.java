@@ -45,18 +45,53 @@ class ServicioClienteTest {
 	}
 	
 	@Test
-	void agregarClienteTest() {
+	void agregarClienteYListarClientesTest() {
 		
-		/** test de ServicioCliente.agregarCliente() */
+		/** test de ServicioCliente.agregarCliente() y ServicioCliente.ListarClientes*/
 		
 		serviciotest.agregarCliente(dto, (long) 117);
-		assertTrue(enlista(serviciotest.listarClientes((long)117)));
+		assertTrue(enLista(serviciotest.listarClientes((long)117)));
 
 	}
 	
-	public boolean enlista(List<DtoCliente> lista) {
+	@Test
+	void eliminarClienteTest() {
+		
+		/** test de ServicioCliente.eliminarCliente() */
+		
+		serviciotest.eliminarCliente((long)44);
+		assertFalse(enLista(serviciotest.listarClientes((long)117)));
+
+	}
+	
+	
+	@Test
+	void modificarClienteTest() {
+		
+		/** test de ServicioCliente.modificarCliente() */
+		
+		DtoCliente dto2 = new DtoCliente((long)44,"nombredistinto","testdir",
+				"testc", "teste","testp", "testcod", "testtel",
+				"testcorel", 999, (double) 999, (double) 999,
+				(double) 999, (double) 999, (double) 999, (double) 999);
+		
+		serviciotest.modificarCliente(dto2, (long) 44);
+		assertTrue(enListaMod(serviciotest.listarClientes((long)117), dto2));
+
+	}
+	
+	
+	
+	public boolean enLista(List<DtoCliente> lista) {
 		for (DtoCliente cliente : lista) {
 			if (cliente.equals(dto)) return true;
+		}
+		return false;
+	}
+	
+	public boolean enListaMod(List<DtoCliente> lista, DtoCliente dto) {
+		for (DtoCliente cliente : lista) {
+			if (cliente.getNombreCliente().equals(dto.getNombreCliente())) return true;
 		}
 		return false;
 	}
