@@ -22,7 +22,6 @@ class ServicioClienteTest {
 	
 	ServicioCliente serviciotest;
 	Usuario testy;
-	Cliente cliente;
 	DtoCliente dto;
 	ServicioUsuario serv;
 	
