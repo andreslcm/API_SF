@@ -18,6 +18,21 @@ public class EnvoltorioFactura {
     /**
      * Constructor
      */
+    
+    
+    
+    
+    
+    /**
+     * Constructor para propositos de testeo
+     *  @param fac, det
+     */
+    public EnvoltorioFactura(DtoFactura fac, List<DtoDetalleFactura> det) {
+    	factura = fac;
+    	detalles = det;
+    }
+    
+    
     public DtoFactura getFactura() {
         return factura;
     }

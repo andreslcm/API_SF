@@ -28,6 +28,18 @@ public class DtoDetalleFactura {
         this.descripcionProyecto = detalleFactura.getDescripcionProyecto();
         this.idDetalleFactura = detalleFactura.getIdDetalleFactura();
     }
+    
+    /**
+     * Contructor para propositos de testeo
+     * 
+     * @param id, descripcion, monto
+     */
+    public DtoDetalleFactura(Long id, String descripcion, Double monto) {
+    	this.monto = monto;
+    	this.descripcionProyecto = descripcion;
+    	this.idDetalleFactura = id;
+    	
+    }
 
     /**
      * Método para obtener el monto del detalle.
