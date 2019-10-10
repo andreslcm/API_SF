@@ -87,12 +87,25 @@ class ServicioFacturaTest {
 	}
 	
 	
+	@Test
+	void modificarFacturaTest() {
+		
+		envoltoriotest.setFactura( new DtoFactura((long) 77, (long) 77, "ordencambiada", new Date(),
+				new Date(), (double) 77, (double) 77, (double) 77,
+				"notas", false ));
+		serviciotest.modificarFactura(envoltoriotest, (long)77);
+		doThrow( new RecursoNoEncontrado("No existe una factura con el ID " + 321)).when(serviciotest).modificarFactura(envoltoriotest, (long)321);
+		assertFalse(facturaEnLista(serviciotest.listarFacturas((long)77)));
+
+	}
+	
 	public boolean facturaEnLista(List<DtoFactura> lista) {
 		for (DtoFactura factura : lista) {
 			if (factura.equals(dto3)) return true;
 		}
 		return false;
 	}
+	
 	
 
 }
