@@ -99,9 +99,18 @@ class ServicioFacturaTest {
 
 	}
 	
+	
+	
 	public boolean facturaEnLista(List<DtoFactura> lista) {
 		for (DtoFactura factura : lista) {
 			if (factura.equals(dto3)) return true;
+		}
+		return false;
+	}
+	
+	public boolean facturaPagadaEnLista(List<DtoFactura> lista, Long id) {
+		for (DtoFactura factura : lista) {
+			if (factura.getIdFactura() == id && factura.getEstaPagada()) return true;
 		}
 		return false;
 	}
