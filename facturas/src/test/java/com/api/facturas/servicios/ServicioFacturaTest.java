@@ -79,6 +79,9 @@ class ServicioFacturaTest {
 	@Test
 	void agregarFacturaYListarFacturaTest() {
 		
+		/** test de ServicioFactura.agregarFactura() , ServicioFactura.listarFacturas() y servicioFactura.listarFacturasPorCliente */
+		
+		
 		serviciotest.agregarFactura(envoltoriotest, (long)117, (long)44);
 		doThrow( new RecursoNoEncontrado("No existe ningún usuario con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, (long) 321, (long)44);
 		doThrow( new RecursoNoEncontrado("No existe ningún cliente con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, (long) 117, (long)321);
@@ -89,6 +92,8 @@ class ServicioFacturaTest {
 	
 	@Test
 	void modificarFacturaTest() {
+		
+		/** test de ServicioFactura.modificarFactura()*/
 		
 		envoltoriotest.setFactura( new DtoFactura((long) 77, (long) 77, "ordencambiada", new Date(),
 				new Date(), (double) 77, (double) 77, (double) 77,
@@ -102,6 +107,8 @@ class ServicioFacturaTest {
 	@Test
 	void eliminarFacturaTest() {
 		
+		/** test de ServicioFactura.eliminarFactura()*/
+		
 		List<Long> id = new ArrayList<>();
 		List<Long> id2 = new ArrayList<>();
 		id.add((long)77);
@@ -112,8 +119,25 @@ class ServicioFacturaTest {
 
 	}
 	
+	@Test
+	void pagarFacturaTest() {
+		
+		/** test de ServicioFactura.pagarFactura()*/
+		
+		List<Long> id = new ArrayList<>();
+		List<Long> id2 = new ArrayList<>();
+		id.add((long)77);
+		id2.add((long)321);
+		serviciotest.pagarFactura(id);
+		doThrow( new RecursoNoEncontrado("No existe ninguna factura con el ID " + 321)).when(serviciotest).pagarFactura(id2);
+		assertTrue(facturaPagadaEnLista(serviciotest.listarFacturas((long)77), (long)77));
+
+	}
 	
 	public boolean facturaEnLista(List<DtoFactura> lista) {
+		
+		/** metodo para asistir en los @test */
+		
 		for (DtoFactura factura : lista) {
 			if (factura.equals(dto3)) return true;
 		}
@@ -121,6 +145,9 @@ class ServicioFacturaTest {
 	}
 	
 	public boolean facturaPagadaEnLista(List<DtoFactura> lista, Long id) {
+		
+		/** metodo para asistir en los @test */
+		
 		for (DtoFactura factura : lista) {
 			if (factura.getIdFactura() == id && factura.getEstaPagada()) return true;
 		}

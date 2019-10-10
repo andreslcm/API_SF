@@ -87,6 +87,9 @@ class ServicioClienteTest {
 	
 	
 	public boolean enLista(List<DtoCliente> lista) {
+		
+		/** metodo para asistir en los @test */
+		
 		for (DtoCliente cliente : lista) {
 			if (cliente.equals(dto)) return true;
 		}
@@ -94,6 +97,8 @@ class ServicioClienteTest {
 	}
 	
 	public boolean enListaMod(List<DtoCliente> lista, DtoCliente dto) {
+		
+		/** metodo para asistir en los @test */
 		for (DtoCliente cliente : lista) {
 			if (cliente.getNombreCliente().equals(dto.getNombreCliente())) return true;
 		}
