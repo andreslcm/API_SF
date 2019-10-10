@@ -49,7 +49,7 @@ public class ServicioFactura {
         Cliente cliente = repoClientes.encontrarPorId(idCliente)
                 .orElseThrow(() -> new RecursoNoEncontrado("No existe ningún cliente con el ID " + idCliente));
         Usuario usuario = repoUsuarios.findById(idUsuario)
-                .orElseThrow(() -> new RecursoNoEncontrado("No existe ningún usuario con el ID " + idCliente));
+                .orElseThrow(() -> new RecursoNoEncontrado("No existe ningún usuario con el ID " + idUsuario));
 
         // Se asginan entre sí tanto las facturas como el usuario y el cliente para que
         // Hibernate haga las relaciones correspondiestes al momento de generar la

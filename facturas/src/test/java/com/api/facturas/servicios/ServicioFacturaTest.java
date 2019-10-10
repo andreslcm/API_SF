@@ -1,6 +1,8 @@
 package com.api.facturas.servicios;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doThrow;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import com.api.facturas.dtos.DtoCliente;
 import com.api.facturas.dtos.DtoDetalleFactura;
 import com.api.facturas.dtos.DtoFactura;
 import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
 import com.api.facturas.modelos.EnvoltorioFactura;
 import com.api.facturas.modelos.Factura;
@@ -73,7 +76,23 @@ class ServicioFacturaTest {
 	}
 	
 	
+	@Test
+	void agregarFacturaYListarFacturaTest() {
+		
+		serviciotest.agregarFactura(envoltoriotest, (long)117, (long)44);
+		doThrow( new RecursoNoEncontrado("No existe ningún usuario con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, (long) 321, (long)44);
+		doThrow( new RecursoNoEncontrado("No existe ningún cliente con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, (long) 117, (long)321);
+		assertTrue(facturaEnLista(serviciotest.listarFacturas((long)117)));
+		assertTrue(facturaEnLista(serviciotest.listarFacturasPorCliente((long)44)));
+	}
 	
+	
+	public boolean facturaEnLista(List<DtoFactura> lista) {
+		for (DtoFactura factura : lista) {
+			if (factura.equals(dto3)) return true;
+		}
+		return false;
+	}
 	
 
 }
