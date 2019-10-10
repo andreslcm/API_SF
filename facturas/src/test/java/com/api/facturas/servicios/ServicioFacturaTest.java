@@ -99,6 +99,18 @@ class ServicioFacturaTest {
 
 	}
 	
+	@Test
+	void eliminarFacturaTest() {
+		
+		List<Long> id = new ArrayList<>();
+		List<Long> id2 = new ArrayList<>();
+		id.add((long)77);
+		id2.add((long)321);
+		serviciotest.eliminarFactura(id);
+		doThrow( new RecursoNoEncontrado("No existe ninguna factura con el ID " + 321)).when(serviciotest).eliminarFactura(id2);
+		assertTrue(facturaEnLista(serviciotest.listarFacturas((long)77)));
+
+	}
 	
 	
 	public boolean facturaEnLista(List<DtoFactura> lista) {
