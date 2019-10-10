@@ -1,6 +1,7 @@
 package com.api.facturas.servicios;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doThrow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
 import com.api.facturas.modelos.Factura;
 import com.api.facturas.modelos.Usuario;
@@ -70,6 +72,7 @@ class ServicioUsuarioTest {
 				"testc","testcor","testdir","testcid","testes","testpa",
 				"testcod","testtel","testdb","testdp","testpayoneer"), (long)117);
 		assertTrue(servicioTest.verificacionNombreUsuario("actualizartest"));
+		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).actualizarDatos(usuarioTest, (long) 321);
 	}
 	
 	@Test
@@ -78,6 +81,8 @@ class ServicioUsuarioTest {
 		/** test de ServicioUsuario.consultarDatos() */
 		
 		assertTrue(servicioTest.consultarDatos((long)117).equals(usuarioTest));
+		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).consultarDatos((long) 321);
+		
 	}
 	
 

@@ -1,16 +1,19 @@
 package com.api.facturas.servicios;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import com.api.facturas.dtos.DtoCliente;
 import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
 import com.api.facturas.modelos.Factura;
 import com.api.facturas.modelos.Usuario;
@@ -60,6 +63,7 @@ class ServicioClienteTest {
 		
 		serviciotest.eliminarCliente((long)44);
 		assertFalse(enLista(serviciotest.listarClientes((long)117)));
+		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).eliminarCliente((long) 321);
 
 	}
 	
@@ -76,6 +80,7 @@ class ServicioClienteTest {
 		
 		serviciotest.modificarCliente(dto2, (long) 44);
 		assertTrue(enListaMod(serviciotest.listarClientes((long)117), dto2));
+		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).modificarCliente(dto2, (long) 321);
 
 	}
 	
