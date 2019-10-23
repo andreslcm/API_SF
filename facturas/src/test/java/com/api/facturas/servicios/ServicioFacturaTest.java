@@ -136,7 +136,9 @@ class ServicioFacturaTest {
 	
 	public boolean facturaEnLista(List<DtoFactura> lista) {
 		
-		/** metodo para asistir en los @test */
+		/** metodo para asistir en los @test 
+		 * @param lista
+		 * una lista de DtoFacturas*/
 		
 		for (DtoFactura factura : lista) {
 			if (factura.equals(dto3)) return true;
@@ -146,7 +148,9 @@ class ServicioFacturaTest {
 	
 	public boolean facturaPagadaEnLista(List<DtoFactura> lista, Long id) {
 		
-		/** metodo para asistir en los @test */
+		/** metodo para asistir en los @test 
+		 * @param lista, id
+		 * una lista de DtoFactura y un Long*/
 		
 		for (DtoFactura factura : lista) {
 			if (factura.getIdFactura() == id && factura.getEstaPagada()) return true;

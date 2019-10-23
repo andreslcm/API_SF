@@ -49,7 +49,9 @@ class ServicioClienteTest {
 	@Test
 	void agregarClienteYListarClientesTest() {
 		
-		/** test de ServicioCliente.agregarCliente() y ServicioCliente.ListarClientes*/
+		/** test de ServicioCliente.agregarCliente() y ServicioCliente.ListarClientes
+		 * @param dto
+		 * DtoCliente*/
 		
 		serviciotest.agregarCliente(dto, (long) 117);
 		assertTrue(enLista(serviciotest.listarClientes((long)117)));
