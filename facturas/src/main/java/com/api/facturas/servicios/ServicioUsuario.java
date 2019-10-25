@@ -102,4 +102,10 @@ public class ServicioUsuario implements UserDetailsService {
                 usuario.getContrasena(), new ArrayList<>());
     }
 
+    public int obtenerIdUsuario(String nombre){
+        int id = repoUsuarios.obtenerId(nombre);
+        
+        return id;
+    }
+
 }

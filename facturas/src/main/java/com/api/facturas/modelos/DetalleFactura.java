@@ -27,7 +27,10 @@ public class DetalleFactura implements Serializable {
     private String descripcionProyecto;
     @Column(name = "monto")
     private double monto;
-
+    @Column(name = "precio")
+    private double precio;
+    @Column(name = "numero_palabras")
+    private Integer numeroPalabras;
     /**
      * Constructor vacío. Necesario para que Hibernate instancie el objeto.
      */
@@ -43,6 +46,8 @@ public class DetalleFactura implements Serializable {
     public DetalleFactura(DtoDetalleFactura detalleFacturaDto) {
         this.monto = detalleFacturaDto.getMonto();
         this.descripcionProyecto = detalleFacturaDto.getDescripcionProyecto();
+        this.precio = detalleFacturaDto.getPrecio();
+        this.numeroPalabras = detalleFacturaDto.getNumeroPalabras();
     }
 
     /**
@@ -116,6 +121,22 @@ public class DetalleFactura implements Serializable {
     public void actualizarDetalles(DtoDetalleFactura detalletDto) {
         this.monto = detalletDto.getMonto();
         this.descripcionProyecto = detalletDto.getDescripcionProyecto();
+    }
+
+    public Integer getNumeroPalabras() {
+        return numeroPalabras;
+    }
+
+    public void setNumeroPalabras(Integer numeroPalabras) {
+        this.numeroPalabras = numeroPalabras;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
 }

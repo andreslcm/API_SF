@@ -51,4 +51,7 @@ public interface RepositorioUsuarios extends JpaRepository<Usuario, Long> {
      */
     @Query(value = "SELECT * FROM usuarios U WHERE U.id_usuario = :idUsuario", nativeQuery = true)
     Usuario encontrarPorId(Long idUsuario);
+
+    @Query(value = "SELECT U.id_usuario FROM usuarios U WHERE U.nombre_usuario = :nombre", nativeQuery = true)
+    Integer obtenerId(String nombre);
 }

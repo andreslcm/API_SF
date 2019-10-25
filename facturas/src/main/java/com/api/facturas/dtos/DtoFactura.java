@@ -1,6 +1,8 @@
 package com.api.facturas.dtos;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.api.facturas.modelos.Factura;
 
@@ -19,6 +21,9 @@ public class DtoFactura {
     private double total;
     private String notas;
     private boolean estaPagada;
+    private String nombreCliente;
+    private List<DtoDetalleFactura> detalles;
+    private Long idCliente;
 
     /**
      * Constructor vacío
@@ -42,6 +47,20 @@ public class DtoFactura {
         this.notas = factura.getNotas();
         this.estaPagada = factura.getEstaPagada();
         this.idFactura = factura.getIdFactura();
+        this.nombreCliente = factura.getCliente().getNombreCliente();
+        this.detalles = agregarDetalles(factura);
+        this.idCliente = factura.getCliente().getIdCliente();
+    }
+
+    /**
+     * Método para enviar una lista de detalles junto con la factura que se vaya a consultar.
+     * @param f (Objeto Factura)
+     * @return listaDto (devuelve un ArrayList de DtoDetalles)
+     */
+    private List<DtoDetalleFactura> agregarDetalles(Factura f){
+        List<DtoDetalleFactura>listaDto = new ArrayList<>();
+        f.getDetalleFactura().forEach(detalle -> listaDto.add(new DtoDetalleFactura (detalle)));
+        return listaDto;
     }
 
     /**
@@ -223,6 +242,30 @@ public class DtoFactura {
      */
     public void setIdFactura(Long idFactura) {
         this.idFactura = idFactura;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public List<DtoDetalleFactura> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<DtoDetalleFactura> detalles) {
+        this.detalles = detalles;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
 }

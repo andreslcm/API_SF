@@ -4,6 +4,7 @@ import com.api.facturas.dtos.DtoUsuario;
 import com.api.facturas.excepciones.CorreoExistente;
 import com.api.facturas.excepciones.UsuarioExistente;
 import com.api.facturas.seguridad.HerramientaToken;
+import com.api.facturas.seguridad.RespuestaHttp;
 import com.api.facturas.seguridad.RespuestaJwt;
 import com.api.facturas.seguridad.SolicitudJwt;
 import com.api.facturas.servicios.ServicioUsuario;
@@ -101,7 +102,9 @@ public class ControladorUsuario {
 
         final String token = herramienta.generarToken(detallesUsuario);
 
-        return ResponseEntity.ok(new RespuestaJwt(token));
+        int id = servicio.obtenerIdUsuario(solicitudAutenticacion.getNombreUsuario());
+        
+        return ResponseEntity.ok(new RespuestaHttp(new RespuestaJwt(token), id));
     }
 
     /**
