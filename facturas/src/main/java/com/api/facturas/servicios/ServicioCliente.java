@@ -33,8 +33,8 @@ public class ServicioCliente {
     /**
      * Método para agregar un cliente a la base de datos a partir de un DTO.
      * 
-     * @param dtoCliente
-     * @param idUsuario
+     * @param Objeto dtoCliente
+     * @param Long idUsuario
      */
     public void agregarCliente(DtoCliente dtoCliente, Long idUsuario) {
         Cliente cliente = new Cliente(dtoCliente);
@@ -47,8 +47,8 @@ public class ServicioCliente {
     /**
      * Método para listar una lista de usuario a partir de si id.
      * 
-     * @param idUsuario
-     * @return {List<DtoCliente> listaClientes}
+     * @param Long idUsuario
+     * @return Lista {List<DtoCliente> listaClientes}
      */
     public List<DtoCliente> listarClientes(Long idUsuario) {
         List<DtoCliente> listaClientes = new ArrayList<>();
@@ -62,7 +62,7 @@ public class ServicioCliente {
     /**
      * Método para eliminar a un cliente de la base de datos.
      * 
-     * @param idCliente
+     * @param Long idCliente
      */
     public void eliminarCliente(Long idCliente) {
         Cliente cliente = repoClientes.encontrarPorId(idCliente).orElseThrow(() -> new RecursoNoEncontrado("No hay ningún cliente con el ID número " + idCliente));
@@ -72,8 +72,8 @@ public class ServicioCliente {
     /**
      * Método para modificar los datos de un cliente existente en la base de datos.
      * 
-     * @param cliente
-     * @param idCliente
+     * @param Objeto cliente
+     * @param Long idCliente
      */
     public void modificarCliente(DtoCliente clienteDto, Long idCliente) {
         Cliente cliente = repoClientes.encontrarPorId(idCliente).orElseThrow(() -> new RecursoNoEncontrado("No hay ningún cliente con el ID número " + idCliente));

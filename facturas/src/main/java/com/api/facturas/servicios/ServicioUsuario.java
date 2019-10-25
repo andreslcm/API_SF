@@ -28,8 +28,8 @@ public class ServicioUsuario {
     /**
      * Método para guardar un usuario en la base de datos a partir de un DTO.
      * 
-     * @param usuarioDto
-     * @return
+     * @param Objeto usuarioDto
+     * @return Objeto usuario
      */
     public Usuario crearusUario(DtoUsuario usuarioDto) {
         Usuario usuario = new Usuario(usuarioDto);
@@ -39,8 +39,8 @@ public class ServicioUsuario {
     /**
      * Método para saber si un nombre de usuario ya existe.
      * 
-     * @param nombreUsuario
-     * @return {boolean}
+     * @param String nombreUsuario
+     * @return {Boolean}
      */
     public boolean verificacionNombreUsuario(String nombreUsuario) {
         return (repoUsuarios.nombreUsuario(nombreUsuario).isPresent());
@@ -49,8 +49,8 @@ public class ServicioUsuario {
     /**
      * Método para saber si un correo ya existe.
      * 
-     * @param correo
-     * @return {boolean}
+     * @param String correo
+     * @return {Boolean}
      */
     public boolean verificacionCorreo(String correo) {
         return (repoUsuarios.correo(correo).isPresent());
@@ -59,8 +59,8 @@ public class ServicioUsuario {
     /**
      * Método para actualizar los datos de un usuario.
      * 
-     * @param usuarioDto
-     * @param idUsuario
+     * @param Objeto usuarioDto
+     * @param Long idUsuario
      */
     public void actualizarDatos(DtoUsuario usuarioDto, Long idUsuario) {
         Usuario usuario = repoUsuarios.findById(idUsuario)
@@ -71,8 +71,8 @@ public class ServicioUsuario {
 
     /**
      * Método para consultar los datos de un usuario.
-     * @param idUsuario
-     * @return {DtoUsuario} usuario
+     * @param Long idUsuario
+     * @return Objeto {DtoUsuario} usuario
      */
     public DtoUsuario consultarDatos(Long idUsuario) {
         DtoUsuario usuario = new DtoUsuario(repoUsuarios.findById(idUsuario)
