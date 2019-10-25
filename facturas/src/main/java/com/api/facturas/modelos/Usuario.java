@@ -85,7 +85,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el id del usuario.
      * 
-     * @return idUsuario
+     * @return {Long} idUsuario
      */
     public Long getIdUsuario() {
         return idUsuario;
@@ -94,7 +94,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener la lista de facturas del usuario.
      * 
-     * @return facturas
+     * @return {List<Factura>} facturas
      */
     public List<Factura> getFacturas() {
         return facturas;
@@ -110,7 +110,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener los clientes del usuario.
      * 
-     * @return clientes
+     * @return {List<Cliente>} clientes
      */
     public List<Cliente> getClientes() {
         return clientes;
@@ -128,7 +128,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener la ciudad del usuario.
      * 
-     * @return ciudad
+     * @return {String} ciudad
      */
     public String getCiudad() {
         return ciudad;
@@ -146,7 +146,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el país del usuario.
      * 
-     * @return pais
+     * @return {String} pais
      */
     public String getPais() {
         return pais;
@@ -164,7 +164,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el estado o provincia del usuario.
      * 
-     * @return estado
+     * @return {String} estado
      */
     public String getEstado() {
         return estado;
@@ -182,7 +182,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el número telefónico del usuario.
      * 
-     * @return telefono
+     * @return {String} telefono
      */
     public String getTelefono() {
         return telefono;
@@ -200,7 +200,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el código postal del usuario.
      * 
-     * @return codigoPostal
+     * @return {String} codigoPostal
      */
     public String getCodigoPostal() {
         return codigoPostal;
@@ -218,7 +218,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el correo electrónico del usuario.
      * 
-     * @return correo
+     * @return {String} correo
      */
     public String getCorreo() {
         return correo;
@@ -236,7 +236,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el nombre de usuario del usuario.
      * 
-     * @return nombreUsuario.
+     * @return {String} nombreUsuario.
      */
     public String getNombreUsuario() {
         return nombreUsuario;
@@ -254,7 +254,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener la contraseña del usuario.
      * 
-     * @return
+     * @return {String} contrasena
      */
     public String getContrasena() {
         return contrasena;
@@ -272,7 +272,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener los datos de PayPal del usuario.
      * 
-     * @return datosPaypal
+     * @return {String} datosPaypal
      */
     public String getDatosPaypal() {
         return datosPaypal;
@@ -290,7 +290,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener los datos de pago bancarios del usuario.
      * 
-     * @return datosBanco
+     * @return {String} datosBanco
      */
     public String getDatosBanco() {
         return datosBanco;
@@ -308,7 +308,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener los datos de pago de Payoneer del usuario.
      * 
-     * @return datosPayoneer
+     * @return {String} datosPayoneer
      */
     public String getDatosPayoneer() {
         return datosPayoneer;
@@ -326,7 +326,7 @@ public class Usuario implements Serializable {
     /**
      * Método para obtener el nombre del usuario.
      * 
-     * @return nombre
+     * @return {String} nombre
      */
     public String getNombre() {
         return nombre;
@@ -344,7 +344,7 @@ public class Usuario implements Serializable {
     /**
      * Método para asignar apellido al usuario.
      * 
-     * @return apellido
+     * @return {String} apellido
      */
     public String getApellido() {
         return apellido;
@@ -363,7 +363,7 @@ public class Usuario implements Serializable {
      * Método para obtener la dirección específica del usuario (i.e., calle, nro. de
      * casa o edificio, etc.).
      * 
-     * @return direccion
+     * @return {String} direccion
      */
     public String getDireccion() {
         return direccion;
