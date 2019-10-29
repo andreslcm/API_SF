@@ -34,15 +34,15 @@ class ServicioClienteTest {
 		
 	/**  setUp para usar en los test  */
 		
-		testy = serv.crearusUario((new DtoUsuario((long) 117, "testn", "testa",
+		testy = serv.crearusUario((new DtoUsuario(117.0, "testn", "testa",
 				"testnu","testc","testcor","testdir","testcid","testes",
 				"testpa","testcod","testtel","testdb","testdp",
 				"testpayoneer")));
 		
-		dto = new DtoCliente((long)44,"testn","testdir",
+		dto = new DtoCliente(44.0,"testn","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
-				"testcorel", 999, (double) 999, (double) 999,
-				(double) 999, (double) 999, (double) 999, (double) 999);
+				"testcorel", 999, 999.0, 999.0,
+				999.0, (999.0, 999.0, 999.0);
 		
 	}
 	
@@ -53,8 +53,8 @@ class ServicioClienteTest {
 		 * @param dto
 		 * DtoCliente*/
 		
-		serviciotest.agregarCliente(dto, (long) 117);
-		assertTrue(enLista(serviciotest.listarClientes((long)117)));
+		serviciotest.agregarCliente(dto, 117.0);
+		assertTrue(enLista(serviciotest.listarClientes(117.0)));
 
 	}
 	
@@ -63,9 +63,9 @@ class ServicioClienteTest {
 		
 		/** test de ServicioCliente.eliminarCliente() */
 		
-		serviciotest.eliminarCliente((long)44);
-		assertFalse(enLista(serviciotest.listarClientes((long)117)));
-		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).eliminarCliente((long) 321);
+		serviciotest.eliminarCliente(44.0);
+		assertFalse(enLista(serviciotest.listarClientes(117.0)));
+		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).eliminarCliente(321.0);
 
 	}
 	
@@ -75,14 +75,14 @@ class ServicioClienteTest {
 		
 		/** test de ServicioCliente.modificarCliente() */
 		
-		DtoCliente dto2 = new DtoCliente((long)44,"nombredistinto","testdir",
+		DtoCliente dto2 = new DtoCliente(44.0,"nombredistinto","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
-				"testcorel", 999, (double) 999, (double) 999,
-				(double) 999, (double) 999, (double) 999, (double) 999);
+				"testcorel", 999, 999.0, 999.0,
+				999.0, 999.0, 999.0, 999.0);
 		
-		serviciotest.modificarCliente(dto2, (long) 44);
-		assertTrue(enListaMod(serviciotest.listarClientes((long)117), dto2));
-		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).modificarCliente(dto2, (long) 321);
+		serviciotest.modificarCliente(dto2,44.0);
+		assertTrue(enListaMod(serviciotest.listarClientes(117.0), dto2));
+		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).modificarCliente(dto2, 321.0);
 
 	}
 	

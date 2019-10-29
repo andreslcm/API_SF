@@ -27,7 +27,7 @@ class ServicioUsuarioTest {
 		
 	/**  setUp de DtoUsuario para usar en los test  */
 		
-		usuarioTest = new DtoUsuario((long) 117, "testn", "testa", "testnu",
+		usuarioTest = new DtoUsuario(117.0, "testn", "testa", "testnu",
 				"testc","testcor","testdir","testcid","testes","testpa",
 				"testcod","testtel","testdb","testdp","testpayoneer");
 		
@@ -68,11 +68,11 @@ class ServicioUsuarioTest {
 		
 		/** test de ServicioUsuario.actualizarDatos() */
 		
-		servicioTest.actualizarDatos(new DtoUsuario((long) 117, "testn", "testa", "actualizartest",
+		servicioTest.actualizarDatos(new DtoUsuario(117.0, "testn", "testa", "actualizartest",
 				"testc","testcor","testdir","testcid","testes","testpa",
-				"testcod","testtel","testdb","testdp","testpayoneer"), (long)117);
+				"testcod","testtel","testdb","testdp","testpayoneer"), 117.0);
 		assertTrue(servicioTest.verificacionNombreUsuario("actualizartest"));
-		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).actualizarDatos(usuarioTest, (long) 321);
+		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).actualizarDatos(usuarioTest, 321.0);
 	}
 	
 	@Test
@@ -80,8 +80,8 @@ class ServicioUsuarioTest {
 		
 		/** test de ServicioUsuario.consultarDatos() */
 		
-		assertTrue(servicioTest.consultarDatos((long)117).equals(usuarioTest));
-		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).consultarDatos((long) 321);
+		assertTrue(servicioTest.consultarDatos(117.0).equals(usuarioTest));
+		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).consultarDatos(321.0);
 		
 	}
 	
