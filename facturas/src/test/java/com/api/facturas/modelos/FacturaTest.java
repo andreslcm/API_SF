@@ -15,7 +15,7 @@ import com.api.facturas.dtos.DtoFactura;
 class FacturaTest {
 
 	Factura testfactura;
-	DtoFactura dtoTest;
+	FacturaDtoTester dtoTest;
 	List<DetalleFactura> facturasTest;
 	Usuario usuariotest;
 	Date datetest;
@@ -26,7 +26,7 @@ class FacturaTest {
 		/** seteado de variables para todas las pruebas */
 		datetest = new Date();
 		testfactura = new Factura();
-		dtoTest = new DtoFactura();
+		dtoTest = new FacturaDtoTester();
 		facturasTest = new ArrayList<DetalleFactura>();
 		facturasTest.add(new DetalleFactura());
 		usuariotest = new Usuario();

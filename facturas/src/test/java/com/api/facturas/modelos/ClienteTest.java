@@ -21,7 +21,7 @@ class ClienteTest {
 	/** Cliente para usar en varios test */
 
 	Cliente testcliente;
-	DtoCliente dtoTest;
+	ClienteDtoTester dtoTest;
 	List<Factura> facturasTest;
 	List<Cliente> clientesTest;
 
@@ -31,7 +31,7 @@ class ClienteTest {
 		/** seteado de variables para todas las pruebas */
 
 		Cliente testcliente = new Cliente();
-		DtoCliente dtoTest = new DtoCliente();
+		DtoCliente dtoTest = new ClienteDtoTester();
 		facturasTest = new ArrayList<Factura>();
 		facturasTest.add(new Factura());
 		clientesTest = new ArrayList<Cliente>();
