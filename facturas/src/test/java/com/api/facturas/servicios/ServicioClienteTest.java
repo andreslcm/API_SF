@@ -11,8 +11,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.api.facturas.dtos.DtoCliente;
-import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.dtos.ClienteDtoTester;
+import com.api.facturas.dtos.UsuarioDtoTester;
 import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
 import com.api.facturas.modelos.Factura;
@@ -25,7 +25,7 @@ class ServicioClienteTest {
 	
 	ServicioCliente serviciotest;
 	Usuario testy;
-	DtoCliente dto;
+	ClienteDtoTester dto;
 	ServicioUsuario serv;
 	
 	
@@ -34,12 +34,12 @@ class ServicioClienteTest {
 		
 	/**  setUp para usar en los test  */
 		
-		testy = serv.crearusUario((new DtoUsuario(117.0, "testn", "testa",
+		testy = serv.crearUsuario((new UsuarioDtoTester(117.0, "testn", "testa",
 				"testnu","testc","testcor","testdir","testcid","testes",
 				"testpa","testcod","testtel","testdb","testdp",
 				"testpayoneer")));
 		
-		dto = new DtoCliente(44.0,"testn","testdir",
+		dto = new ClienteDtoTester(44.0,"testn","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
 				"testcorel", 999, 999.0, 999.0,
 				999.0, (999.0, 999.0, 999.0);
@@ -51,7 +51,7 @@ class ServicioClienteTest {
 		
 		/** test de ServicioCliente.agregarCliente() y ServicioCliente.ListarClientes
 		 * @param dto
-		 * DtoCliente*/
+		 * ClienteDtoTester*/
 		
 		serviciotest.agregarCliente(dto, 117.0);
 		assertTrue(enLista(serviciotest.listarClientes(117.0)));
@@ -75,7 +75,7 @@ class ServicioClienteTest {
 		
 		/** test de ServicioCliente.modificarCliente() */
 		
-		DtoCliente dto2 = new DtoCliente(44.0,"nombredistinto","testdir",
+		ClienteDtoTester dto2 = new ClienteDtoTester(44.0,"nombredistinto","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
 				"testcorel", 999, 999.0, 999.0,
 				999.0, 999.0, 999.0, 999.0);
@@ -88,24 +88,24 @@ class ServicioClienteTest {
 	
 	
 	
-	public boolean enLista(List<DtoCliente> lista) {
+	public boolean enLista(List<ClienteDtoTester> lista) {
 		
 		/** metodo para asistir en los @test
 		 * @param lista
-		 * lista de DToCliente */
+		 * lista de ClienteDtoTester */
 		
-		for (DtoCliente cliente : lista) {
+		for (ClienteDtoTester cliente : lista) {
 			if (cliente.equals(dto)) return true;
 		}
 		return false;
 	}
 	
-	public boolean enListaMod(List<DtoCliente> lista, DtoCliente dto) {
+	public boolean enListaMod(List<ClienteDtoTester> lista, ClienteDtoTester dto) {
 		
 		/** metodo para asistir en los @test 
 		 * @param lista, dto
-		 * lista de DtoCliente y DtoCliente*/
-		for (DtoCliente cliente : lista) {
+		 * lista de ClienteDtoTester y ClienteDtoTester*/
+		for (ClienteDtoTester cliente : lista) {
 			if (cliente.getNombreCliente().equals(dto.getNombreCliente())) return true;
 		}
 		return false;

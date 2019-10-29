@@ -12,13 +12,12 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.api.facturas.dtos.DtoCliente;
+import com.api.facturas.dtos.ClienteDtoTester;
 import com.api.facturas.dtos.DtoDetalleFactura;
 import com.api.facturas.dtos.DtoFactura;
-import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.dtos.UsuarioDtoTester;
 import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
-import com.api.facturas.modelos.EnvoltorioFactura;
 import com.api.facturas.modelos.Factura;
 import com.api.facturas.modelos.Usuario;
 
@@ -32,11 +31,11 @@ class ServicioFacturaTest {
 	ServicioFactura serviciotest;
 	ServicioCliente serviciotest2;
 	ServicioUsuario serviciotest3;
-	DtoCliente dto;
-	DtoUsuario dto2;
-	DtoFactura dto3;
+	ClienteDtoTester dto;
+	UsuarioDtoTester dto2;
+	FacturaDtoTester dto3;
 	DtoDetalleFactura dto4;
-	EnvoltorioFactura envoltoriotest;
+	EnvoltorioTester envoltoriotest;
 	List<DtoDetalleFactura> arraytest;
 	
 	
@@ -46,19 +45,19 @@ class ServicioFacturaTest {
 	/**  setUp para usar en los test  */
 		
 		
-		dto = new DtoCliente(44.0,"testn","testdir",
+		dto = new ClienteDtoTester(44.0,"testn","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
 				"testcorel", 999, 999.0, 999.0,
 				999.0, 999.0, 999.0, 999.0;
 		
-		dto2 = new DtoUsuario(117.0, "testn", "testa",
+		dto2 = new UsuarioDtoTester(117.0, "testn", "testa",
 				"testnu","testc","testcor","testdir","testcid","testes",
 				"testpa","testcod","testtel","testdb","testdp",
 				"testpayoneer");
 		
 		Date datetest = new Date();
 		
-		dto3 = new DtoFactura(77.0, 77.0, "orden", datetest,
+		dto3 = new FacturaDtoTester(77.0, 77.0, "orden", datetest,
 				datetest, 77.0, 77.0, 77.0,
 				"notas", false );
 		
@@ -71,7 +70,7 @@ class ServicioFacturaTest {
 		
 		serviciotest2.agregarCliente(dto,117.0);
 				
-		envoltoriotest = new EnvoltorioFactura(dto3, arraytest);
+		envoltoriotest = new EnvoltorioTester(dto3, arraytest);
 		
 	}
 	
@@ -95,7 +94,7 @@ class ServicioFacturaTest {
 		
 		/** test de ServicioFactura.modificarFactura()*/
 		
-		envoltoriotest.setFactura( new DtoFactura(77.0, 77.0, "ordencambiada", new Date(),
+		envoltoriotest.setFactura( new FacturaDtoTester(77.0, 77.0, "ordencambiada", new Date(),
 				new Date(), 77.0, 77.0, 77.0,
 				"notas", false ));
 		serviciotest.modificarFactura(envoltoriotest, 77.0);
@@ -134,25 +133,25 @@ class ServicioFacturaTest {
 
 	}
 	
-	public boolean facturaEnLista(List<DtoFactura> lista) {
+	public boolean facturaEnLista(List<FacturaDtoTester> lista) {
 		
 		/** metodo para asistir en los @test 
 		 * @param lista
 		 * una lista de DtoFacturas*/
 		
-		for (DtoFactura factura : lista) {
+		for (FacturaDtoTester factura : lista) {
 			if (factura.equals(dto3)) return true;
 		}
 		return false;
 	}
 	
-	public boolean facturaPagadaEnLista(List<DtoFactura> lista, Long id) {
+	public boolean facturaPagadaEnLista(List<FacturaDtoTester> lista, Long id) {
 		
 		/** metodo para asistir en los @test 
 		 * @param lista, id
 		 * una lista de DtoFactura y un Long*/
 		
-		for (DtoFactura factura : lista) {
+		for (FacturaDtoTester factura : lista) {
 			if (factura.getIdFactura() == id && factura.getEstaPagada()) return true;
 		}
 		return false;

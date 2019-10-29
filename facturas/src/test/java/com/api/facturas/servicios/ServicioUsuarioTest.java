@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.dtos.UsuarioDtoTester;
 import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Cliente;
 import com.api.facturas.modelos.Factura;
@@ -20,14 +20,14 @@ class ServicioUsuarioTest {
 	/**  ServicioUsuario para usar en varios test */
 	
 	ServicioUsuario servicioTest;
-	DtoUsuario usuarioTest;
+	UsuarioDtoTester usuarioTest;
 	
 	@BeforeClass
 	void setUp() { 
 		
-	/**  setUp de DtoUsuario para usar en los test  */
+	/**  setUp de UsuarioDtoTester para usar en los test  */
 		
-		usuarioTest = new DtoUsuario(117.0, "testn", "testa", "testnu",
+		usuarioTest = new UsuarioDtoTester(117.0, "testn", "testa", "testnu",
 				"testc","testcor","testdir","testcid","testes","testpa",
 				"testcod","testtel","testdb","testdp","testpayoneer");
 		
@@ -68,7 +68,7 @@ class ServicioUsuarioTest {
 		
 		/** test de ServicioUsuario.actualizarDatos() */
 		
-		servicioTest.actualizarDatos(new DtoUsuario(117.0, "testn", "testa", "actualizartest",
+		servicioTest.actualizarDatos(new UsuarioDtoTester(117.0, "testn", "testa", "actualizartest",
 				"testc","testcor","testdir","testcid","testes","testpa",
 				"testcod","testtel","testdb","testdp","testpayoneer"), 117.0);
 		assertTrue(servicioTest.verificacionNombreUsuario("actualizartest"));
