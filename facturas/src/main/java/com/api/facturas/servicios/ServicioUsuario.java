@@ -31,7 +31,7 @@ public class ServicioUsuario {
      * @param Objeto usuarioDto
      * @return Objeto usuario
      */
-    public Usuario crearusUario(DtoUsuario usuarioDto) {
+    public Usuario crearUsuario(DtoUsuario usuarioDto) {
         Usuario usuario = new Usuario(usuarioDto);
         return repoUsuarios.save(usuario);
     }

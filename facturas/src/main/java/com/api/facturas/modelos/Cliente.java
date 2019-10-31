@@ -94,6 +94,15 @@ public class Cliente implements Serializable {
     public Long getIdCliente() {
         return idCliente;
     }
+    
+    /**
+     * Método para asignar el id del cliente.
+     * 
+     * @return {Long} idCliente
+     */
+    public Long setIdCliente(Long id) {
+        this.idCliente = id;
+    }
 
     /**
      * Método para obtener el usuario al que está relacionado el cliente.

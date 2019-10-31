@@ -10,6 +10,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.modelos.Cliente;
+import com.api.facturas.modelos.Factura;
+import com.api.facturas.modelos.Usuario;
 
 
 
@@ -235,7 +238,7 @@ class UsuarioTest {
 	}
 	
 	@Test
-	void getContraseñaTest() {
+	void getContrase�aTest() {
 		
 		/** test de getter de Usuario.contraseña */
 		
@@ -244,7 +247,7 @@ class UsuarioTest {
 	}
 	
 	@Test
-	void setContraseñaTest() {
+	void setContrase�aTest() {
 		
 		/** test de setter de Usuario.contraseña */
 		

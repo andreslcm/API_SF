@@ -11,6 +11,9 @@ import org.junit.Test;
 
 import com.api.facturas.dtos.DtoCliente;
 import com.api.facturas.dtos.DtoFactura;
+import com.api.facturas.modelos.DetalleFactura;
+import com.api.facturas.modelos.Factura;
+import com.api.facturas.modelos.Usuario;
 
 class FacturaTest {
 

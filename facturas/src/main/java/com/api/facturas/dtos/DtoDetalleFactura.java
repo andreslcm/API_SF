@@ -30,18 +30,6 @@ public class DtoDetalleFactura {
     }
     
     /**
-     * Contructor para propositos de testeo
-     * 
-     * @param id, descripcion, monto
-     */
-    public DtoDetalleFactura(Long id, String descripcion, Double monto) {
-    	this.monto = monto;
-    	this.descripcionProyecto = descripcion;
-    	this.idDetalleFactura = id;
-    	
-    }
-
-    /**
      * Método para obtener el monto del detalle.
      * 
      * @return monto
