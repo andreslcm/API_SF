@@ -41,7 +41,7 @@ class ServicioClienteTest {
 				"testpa","testcod","testtel","testdb","testdp",
 				"testpayoneer")));
 		
-		dto = new ClienteDtoTester((long) 44,"testn","testdir",
+		dto = new ClienteDtoTester((long)44, "testn","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
 				"testcorel", 999, 999.0, 999.0,
 				999.0, 999.0, 999.0, 999.0);
@@ -65,8 +65,8 @@ class ServicioClienteTest {
 		
 		/** test de ServicioCliente.eliminarCliente() */
 		
-		serviciotest.eliminarCliente((long) 44.);
-		assertFalse(enLista(serviciotest.listarClientes((long) 117.0)));
+		serviciotest.eliminarCliente((long)44);
+		assertFalse(enLista(serviciotest.listarClientes((long)117)));
 		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).eliminarCliente(321.0);
 
 	}
@@ -77,7 +77,7 @@ class ServicioClienteTest {
 		
 		/** test de ServicioCliente.modificarCliente() */
 		
-		DtoCliente dto2 = new ClienteDtoTester((long) 44,"nombredistinto","testdir",
+		DtoCliente dto2 = new ClienteDtoTester((long)44,"nombredistinto","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
 				"testcorel", 999, 999.0, 999.0,
 				999.0, 999.0, 999.0, 999.0);
