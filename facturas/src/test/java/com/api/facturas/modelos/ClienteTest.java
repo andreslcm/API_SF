@@ -10,6 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.api.facturas.dtos.DtoCliente;
+import com.api.facturas.modelos.Cliente;
+import com.api.facturas.modelos.Factura;
 
 /**
  * Para testear la clase Cliente
@@ -66,7 +68,7 @@ class ClienteTest {
 
 		/** test de setter de Cliente.IdCliente */
 
-		testcliente.setIdCliente(1234);
+		testcliente.setIdCliente((long) 1234);
 		assertNotNull(testcliente.getIdCliente());
 		assertTrue(testcliente.getIdCliente() == 1234);
 

@@ -89,16 +89,25 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el id del cliente.
      * 
-     * @return idCliente
+     * @return {Long} idCliente
      */
     public Long getIdCliente() {
         return idCliente;
+    }
+    
+    /**
+     * Método para asignar el id del cliente.
+     * 
+     * @return {Long} idCliente
+     */
+    public Long setIdCliente(Long id) {
+        this.idCliente = id;
     }
 
     /**
      * Método para obtener el usuario al que está relacionado el cliente.
      * 
-     * @return usuario
+     * @return {Usuario} usuario
      */
     public Usuario getUsuario() {
         return usuario;
@@ -117,7 +126,7 @@ public class Cliente implements Serializable {
      * Método para obtener el nombre del cliente, que puede ser una agencia o un
      * cliente particular.
      * 
-     * @return nombreCliente
+     * @return {String} nombreCliente
      */
     public String getNombreCliente() {
         return nombreCliente;
@@ -136,7 +145,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el país del cliente.
      * 
-     * @return pais
+     * @return {String} pais
      */
     public String getPais() {
         return pais;
@@ -154,7 +163,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el estado o provincia del cliente.
      * 
-     * @return estado
+     * @return {String} estado
      */
     public String getEstado() {
         return estado;
@@ -172,7 +181,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener la ciudad del cliente.
      * 
-     * @return ciudad
+     * @return {String} ciudad
      */
     public String getCiudad() {
         return ciudad;
@@ -190,7 +199,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el código postal del cliente.
      * 
-     * @return codigoPostal
+     * @return {String} codigoPostal
      */
     public String getCodigoPostal() {
         return codigoPostal;
@@ -208,7 +217,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el teléfono del cliente.
      * 
-     * @return telefono
+     * @return {String} telefono
      */
     public String getTelefono() {
         return telefono;
@@ -226,7 +235,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el correo electrónico del cliente.
      * 
-     * @return correoElectrónico
+     * @return {String} correoElectrónico
      */
     public String getCorreoElectronico() {
         return correoElectronico;
@@ -244,7 +253,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el plazo de pago para el cliente.
      * 
-     * @return terminoPago
+     * @return {int} terminoPago
      */
     public int getTerminoPago() {
         return terminoPago;
@@ -262,7 +271,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el precio por palabra traducida para el cliente.
      * 
-     * @return palabraTraduccion
+     * @return {double} palabraTraduccion
      */
     public double getPalabraTraduccion() {
         return palabraTraduccion;
@@ -280,7 +289,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el precio por hora de traducción para el cliente.
      * 
-     * @return horaTraduccion
+     * @return {double} horaTraduccion
      */
     public double getHoraTraduccion() {
         return horaTraduccion;
@@ -298,7 +307,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el precio por palabra editada para el cliente.
      * 
-     * @return palabraEdicion
+     * @return {double} palabraEdicion
      */
     public double getPalabraEdicion() {
         return palabraEdicion;
@@ -316,7 +325,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el precio por hora de edición para el cliente.
      * 
-     * @return horaEdicion
+     * @return {double} horaEdicion
      */
     public double getHoraEdicion() {
         return horaEdicion;
@@ -334,7 +343,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el precio por palabra revisada para el cliente.
      * 
-     * @return palabraProofreading
+     * @return {double} palabraProofreading
      */
     public double getPalabraProofreading() {
         return palabraProofreading;
@@ -352,7 +361,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener el precio por hora de proofreading para el cliente.
      * 
-     * @return horaProofreading
+     * @return {double} horaProofreading
      */
     public double getHoraProofreading() {
         return horaProofreading;
@@ -371,7 +380,7 @@ public class Cliente implements Serializable {
      * Método para obtener la dirección específica del cliente (i.e., calle, nro. de
      * casa o edificio, etc.).
      * 
-     * @return direccion
+     * @return {String} direccion
      */
     public String getDireccion() {
         return direccion;
@@ -389,7 +398,7 @@ public class Cliente implements Serializable {
     /**
      * Método para obtener las facturas correspondientes al cliente.
      * 
-     * @return facturas
+     * @return {List<Factura>} facturas
      */
     public List<Factura> getFacturas() {
         return facturas;
