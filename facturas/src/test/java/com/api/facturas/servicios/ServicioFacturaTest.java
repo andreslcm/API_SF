@@ -107,7 +107,7 @@ class ServicioFacturaTest {
 				"notas", false ));
 		serviciotest.modificarFactura(envoltoriotest, (long)77);
 		doThrow( new RecursoNoEncontrado("No existe una factura con el ID " + 321)).when(serviciotest).modificarFactura(envoltoriotest, 321.0);
-		assertFalse(facturaEnLista(serviciotest.listarFacturas((long) 77)));
+		assertFalse(facturaEnLista(serviciotest.listarFacturas((long)77)));
 
 	}
 	

@@ -77,12 +77,12 @@ class ServicioClienteTest {
 		
 		/** test de ServicioCliente.modificarCliente() */
 		
-		DtoCliente dto2 = new ClienteDtoTester((long)44,"nombredistinto","testdir",
+		DtoCliente dto2 = new ClienteDtoTester((long)44, "nombredistinto","testdir",
 				"testc", "teste","testp", "testcod", "testtel",
 				"testcorel", 999, 999.0, 999.0,
 				999.0, 999.0, 999.0, 999.0);
 		
-		serviciotest.modificarCliente(dto2,(long)44);
+		serviciotest.modificarCliente(dto2, (long)44);
 		assertTrue(enListaMod(serviciotest.listarClientes((long)117), dto2));
 		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).modificarCliente(dto2, 321.0);
 
