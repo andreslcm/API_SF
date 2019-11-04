@@ -72,18 +72,6 @@ class ControladorUsuarioTest {
 		assertTrue(serviciotest.consultarDatos(((long)117)).equals(dto2));
 	}
 	
-	
-	@Test
-	
-	void actualizarDatosClienteTest() {
-		
-		/**  test de ControladorCliente.actualizarDatosCliente()  */
-		
-		test.actualizarDatosCliente(dto3, (long)44);
-		assertTrue(enLista(serviciotest.listarClientes((long)117), dto3));
-	}
-	
-
 	}
 	
 }

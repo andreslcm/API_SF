@@ -62,7 +62,7 @@ class ControladorClienteTest {
 		 * @param long*/
 		
 		test.agregarCliente(dto, (long)117);
-		assertTrue(enLista(serviciotest.listarClientes((long)117), dto));
+		assertTrue(serviciotest.listarClientes((long)117).contains(dto));
 
 	}
 	
@@ -72,7 +72,7 @@ class ControladorClienteTest {
 		
 		/**  test de ControladorCliente.listarCliente()  */
 		
-		assertTrue(enLista(test.listarCliente((long)117).getBody()), dto);
+		assertTrue(serviciotest.listarClientes((long)117).contains(dto));
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ class ControladorClienteTest {
 		/**  test de ControladorCliente.eliminarCliente()  */
 		
 		test.eliminarCliente((long)117).getBody();
-		assertTrue(!enLista(serviciotest.listarClientes((long)117), dto));
+		assertTrue(!serviciotest.listarClientes((long)117).contains(dto));
 	}
 	
 	
@@ -93,21 +93,9 @@ class ControladorClienteTest {
 		/**  test de ControladorCliente.actualizarDatosCliente()  */
 		
 		test.actualizarDatosCliente(dto3, (long)44);
-		assertTrue(enLista(serviciotest.listarClientes((long)117), dto3));
+		assertTrue((serviciotest.listarClientes((long)117).contains(dto3)));
 	}
 	
-	
-	public boolean enLista(List<DtoCliente> lista, DtoCliente dto) {
-		
-		/** metodo para asistir en los @test
-		 * @param lista
-		 * lista de DtoCliente */
-		
-		for (DtoCliente cliente : lista) {
-			if (cliente.equals(dto)) return true;
-		}
-		return false;
-	}
 
 
 	}

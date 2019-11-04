@@ -82,7 +82,7 @@ class ControladorFacturaTest {
 		 * @param long*/
 		
 		test.agregarFactura(dto4, (long)117, (long)44);
-		assertTrue(enLista(serviciotest3.listarFacturas((long)117), dto3));
+		assertTrue(serviciotest3.listarFacturas((long)117).contains(dto3));
 
 	}
 
@@ -95,7 +95,7 @@ class ControladorFacturaTest {
 		 * @param long*/
 		
 
-		assertTrue(enLista(test.listarFacturas((long)117), dto3));
+		assertTrue(test.listarFacturas((long)117).contains(dto3));
 
 	}
 	
@@ -108,7 +108,7 @@ class ControladorFacturaTest {
 		 * @param long*/
 		
 
-		assertTrue(enLista(test.listarFacturasPorCliente((long)44), dto3));
+		assertTrue(test.listarFacturasPorCliente((long)44).contains(dto3));
 
 	}
 	
@@ -125,7 +125,7 @@ class ControladorFacturaTest {
 		dto4.setFactura(dto5);
 
 		test.modificarFactura(dto4, (long)77);
-		assertTrue(enLista(test.listarFacturas((long)117), dto5));
+		assertTrue(test.listarFacturas((long)117).contains(dto5));
 
 	}
 	
@@ -138,7 +138,7 @@ class ControladorFacturaTest {
 	
 
 		test.eliminarFactura((long)77);
-		assertTrue(!enLista(test.listarFacturas((long)117), dto3));
+		assertTrue(!test.listarFacturas((long)117).contains(dto3));
 
 	}
 	
@@ -151,7 +151,7 @@ class ControladorFacturaTest {
 	
 
 		test.pagarFactura((long)77);
-		assertTrue(enLista(test.listarFacturas((long)117), dto5));
+		assertTrue(test.listarFacturas((long)117).contains(dto5));
 
 	}
 	
