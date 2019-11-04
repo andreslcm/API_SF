@@ -19,10 +19,8 @@ import com.api.facturas.dtos.UsuarioDtoTester;
 
 class ControladorClienteTest {
 	
-
-class ServicioClienteTest {
 	
-	/**  ServicioCliente para usar en varios test */
+	/**  ControladorClienteTest para usar en varios test */
 	
 	ControladorCliente test;
 	ServicioCliente serviciotest;
