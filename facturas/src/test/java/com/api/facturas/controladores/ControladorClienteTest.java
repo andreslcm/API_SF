@@ -28,6 +28,7 @@ class ServicioClienteTest {
 	ServicioCliente serviciotest;
 	DtoCliente dto;
 	DtoUsuario dto2;
+	DtoCliente dto3;
 	ServicioUsuario serviciotest2;
 	
 	
@@ -45,6 +46,11 @@ class ServicioClienteTest {
 				"testc", "teste","testp", "testcod", "testtel",
 				"testcorel", 999, 999.0, 999.0,
 				999.0, 999.0, 999.0, 999.0);
+		
+		dto3 = new ClienteDtoTester((long)44, "Cambio","testdir",
+				"testc", "teste","testp", "testcod", "testtel",
+				"testcorel", 999, 999.0, 999.0,
+				999.0, 999.0, 999.0, 999.0);
 		serviciotest2.crearUsuario(dto2);
 		
 		
@@ -58,21 +64,42 @@ class ServicioClienteTest {
 		 * @param long*/
 		
 		test.agregarCliente(dto, (long)117);
-		assertTrue(enLista(serviciotest.listarClientes((long)117)));
+		assertTrue(enLista(serviciotest.listarClientes((long)117), dto));
 
 	}
 	
-	@test
+	@Test
 	
 	void listarClienteTest() {
 		
 		/**  test de ControladorCliente.listarCliente()  */
 		
-		assertTrue(test.listarCliente((long)117).getBody());
+		assertTrue(enLista(test.listarCliente((long)117).getBody()), dto);
+	}
+	
+	@Test
+	
+	void eliminarClienteTest() {
+		
+		/**  test de ControladorCliente.eliminarCliente()  */
+		
+		test.eliminarCliente((long)117).getBody();
+		assertTrue(!enLista(serviciotest.listarClientes((long)117), dto));
 	}
 	
 	
-	public boolean enLista(List<DtoCliente> lista) {
+	@Test
+	
+	void actualizarDatosClienteTest() {
+		
+		/**  test de ControladorCliente.actualizarDatosCliente()  */
+		
+		test.actualizarDatosCliente(dto3, (long)44);
+		assertTrue(enLista(serviciotest.listarClientes((long)117), dto3));
+	}
+	
+	
+	public boolean enLista(List<DtoCliente> lista, DtoCliente dto) {
 		
 		/** metodo para asistir en los @test
 		 * @param lista
