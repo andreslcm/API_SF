@@ -23,6 +23,13 @@ public class DtoCliente {
     private double horaEdicion;
     private double palabraProofreading;
     private double horaProofreading;
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Constructor vacío
@@ -54,7 +61,7 @@ public class DtoCliente {
         this.horaEdicion = cliente.getHoraEdicion();
         this.horaProofreading = cliente.getHoraProofreading();
     }
-
+    
     /**
      * Método para obtener el id del cliente.
      * 

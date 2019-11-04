@@ -28,7 +28,7 @@ public class DtoDetalleFactura {
         this.descripcionProyecto = detalleFactura.getDescripcionProyecto();
         this.idDetalleFactura = detalleFactura.getIdDetalleFactura();
     }
-
+    
     /**
      * Método para obtener el monto del detalle.
      * 
