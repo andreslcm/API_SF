@@ -41,7 +41,7 @@ public class ControladorUsuario {
             throw new UsuarioExistente("El usuario ya existe: " + usuario.getNombreUsuario());
         }
 
-        servicio.crearusUario(usuario);
+        servicio.crearUsuario(usuario);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

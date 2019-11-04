@@ -101,7 +101,7 @@ public class Cliente implements Serializable {
      * @return {Long} idCliente
      */
     public Long setIdCliente(Long id) {
-        this.idCliente = id;
+        return this.idCliente = id;
     }
 
     /**
