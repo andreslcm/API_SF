@@ -39,7 +39,7 @@ public class ServicioUsuario implements UserDetailsService {
      * @param usuarioDto
      * @return
      */
-    public Usuario crearusUario(DtoUsuario usuarioDto) {
+    public Usuario crearUsuario(DtoUsuario usuarioDto) {
         Usuario usuario = new Usuario(usuarioDto);
         usuario.setContrasena(codificador.encode(usuarioDto.getContrasena()));
         return repoUsuarios.save(usuario);
