@@ -140,7 +140,7 @@ class ControladorFacturaTest {
 	
 		ArrayList<Long> arraytest = new ArrayList<>();
 		arraytest.add((long)77);
-		ResponseEntity responsetest = test.eliminarFactura((arraytest);
+		ResponseEntity responsetest = test.eliminarFactura((arraytest));
 		assertTrue(!((List<DtoDetalleFactura>) responsetest).contains(dto3));
 
 	}
