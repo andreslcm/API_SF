@@ -43,21 +43,21 @@ class RespuestaHttpTest {
 	}
 	
 	@Test
-	void getContraseñaTest() {
+	void getIdTest() {
 
-		/** test de getter de SolicitudJwt.getContrasena */
+		/** test de getter de RespuestaHtto.getId */
 
-		assertTrue(test.getContrasena().equals("test"));
+		assertTrue(test.getId() == 11);
 
 	}
 
 	@Test
-	void setContrasenaTest() {
+	void setIdTest() {
 
-		/** test de setter de SolicitudJwt.setContrasena */
+		/** test de setter de RespuestaHttp.setId */
 
-		test.setContrasena("test2");
-		assertTrue(test.getContrasena().equals("test2"));
+		test.setId(12);
+		assertTrue(test.getId() == 12);
 
 	}
 
