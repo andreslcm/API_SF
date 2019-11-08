@@ -36,10 +36,6 @@ class ControladorUsuarioTest {
 				"testnu","testc","testcor","testdir","testcid","testes",
 				"testpa","testcod","testtel","testdb","testdp",
 				"testpayoneer");
-		
-
-		
-		
 	}
 	
 	@Test
