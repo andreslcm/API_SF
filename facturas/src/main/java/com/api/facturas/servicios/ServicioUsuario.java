@@ -70,8 +70,15 @@ public class ServicioUsuario implements UserDetailsService {
         Usuario usuario = repoUsuarios.findById(idUsuario)
                 .orElseThrow(() -> new RecursoNoEncontrado("No existe un usuario con el ID " + idUsuario));
 
-        usuarioDto.setContrasena(codificador.encode(usuarioDto.getContrasena()));
+        // usuarioDto.setContrasena(codificador.encode(usuarioDto.getContrasena()));
         usuario.actualizarDatos(usuarioDto);
+        repoUsuarios.save(usuario);
+    }
+
+    public void actualizarContrasena(Long idUsuario, String contrasena){
+        Usuario usuario = repoUsuarios.findById(idUsuario)
+                .orElseThrow(() -> new RecursoNoEncontrado("No existe un usuario con el ID " + idUsuario));
+        usuario.actualizarContrasena(codificador.encode(contrasena));
         repoUsuarios.save(usuario);
     }
 

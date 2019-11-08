@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -71,6 +72,12 @@ public class ControladorUsuario {
             @PathVariable(value = "idUsuario") Long idUsuario) {
 
         servicio.actualizarDatos(usuarioDto, idUsuario);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/actualizar-contrasena/{idUsuario}")
+    public ResponseEntity<?> actualizarContrasena (@PathVariable(value = "idUsuario") Long idUsuario, @RequestParam String contrasena){
+        servicio.actualizarContrasena(idUsuario, contrasena);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
