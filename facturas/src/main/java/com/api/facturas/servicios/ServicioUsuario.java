@@ -1,17 +1,22 @@
 package com.api.facturas.servicios;
 
 import java.util.ArrayList;
-
 import com.api.facturas.dtos.DtoUsuario;
 import com.api.facturas.excepciones.RecursoNoEncontrado;
 import com.api.facturas.modelos.Usuario;
 import com.api.facturas.repositorios.RepositorioUsuarios;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import com.api.facturas.dtos.DtoUsuario;
+import com.api.facturas.excepciones.RecursoNoEncontrado;
+import com.api.facturas.modelos.Usuario;
+import com.api.facturas.repositorios.RepositorioClientes;
+import com.api.facturas.repositorios.RepositorioFacturas;
+import com.api.facturas.repositorios.RepositorioUsuarios;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -114,5 +119,4 @@ public class ServicioUsuario implements UserDetailsService {
         
         return id;
     }
-
 }

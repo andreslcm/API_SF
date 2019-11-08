@@ -45,7 +45,7 @@ class SolicitudJwtTest {
 	}
 	
 	@Test
-	void getContraseñaTest() {
+	void getContrasenaTest() {
 
 		/** test de getter de SolicitudJwt.getContrasena */
 
