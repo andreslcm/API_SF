@@ -152,7 +152,6 @@ class ControladorFacturaTest {
 		 * 
 		 * @param long*/
 	
-		ArrayList<Long> arraytest;
 		ArrayList<Long> arraytest = new ArrayList<>();
 		arraytest.add((long)77);
 		ResponseEntity responsetest = test.pagarFactura(arraytest);
