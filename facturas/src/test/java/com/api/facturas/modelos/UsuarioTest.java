@@ -238,7 +238,7 @@ class UsuarioTest {
 	}
 	
 	@Test
-	void getContraseñaTest() {
+	void getContrasenaTest() {
 		
 		/** test de getter de Usuario.contraseÃ±a */
 		
@@ -247,7 +247,7 @@ class UsuarioTest {
 	}
 	
 	@Test
-	void setContraseñaTest() {
+	void setContrasenaTest() {
 		
 		/** test de setter de Usuario.contraseÃ±a */
 		

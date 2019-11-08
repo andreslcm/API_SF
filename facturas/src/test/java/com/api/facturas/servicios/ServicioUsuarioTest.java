@@ -72,7 +72,7 @@ class ServicioUsuarioTest {
 				"testc","testcor","testdir","testcid","testes","testpa",
 				"testcod","testtel","testdb","testdp","testpayoneer"), (long)117);
 		assertTrue(servicioTest.verificacionNombreUsuario("actualizartest"));
-		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).actualizarDatos(usuarioTest, 321.0);
+		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).actualizarDatos(usuarioTest, (long)321);
 	}
 	
 	@Test
@@ -81,7 +81,7 @@ class ServicioUsuarioTest {
 		/** test de ServicioUsuario.consultarDatos() */
 		
 		assertTrue(servicioTest.consultarDatos((long)117).equals(usuarioTest));
-		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).consultarDatos(321.0);
+		doThrow( new RecursoNoEncontrado("No existe un usuario con el ID " + 321)).when(servicioTest).consultarDatos((long)321);
 		
 	}
 	

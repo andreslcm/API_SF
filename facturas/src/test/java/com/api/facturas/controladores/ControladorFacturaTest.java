@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.http.ResponseEntity;
 
 import com.api.facturas.dtos.ClienteDtoTester;
 import com.api.facturas.dtos.DtoCliente;
@@ -94,8 +95,8 @@ class ControladorFacturaTest {
 		 * @param dto 
 		 * @param long*/
 		
-
-		assertTrue(test.listarFacturas((long)117).contains(dto3));
+		ResponseEntity responsetest = test.listarFacturas((long)117);
+		assertTrue(((List<DtoDetalleFactura>) responsetest.getBody()).contains(dto3));
 
 	}
 	
@@ -107,8 +108,8 @@ class ControladorFacturaTest {
 		 * @param dto 
 		 * @param long*/
 		
-
-		assertTrue(test.listarFacturasPorCliente((long)44).contains(dto3));
+		ResponseEntity responsetest = test.listarFacturasPorCliente((long)44);
+		assertTrue(((List<DtoDetalleFactura>) responsetest).contains(dto3));
 
 	}
 	
@@ -125,7 +126,8 @@ class ControladorFacturaTest {
 		dto4.setFactura(dto5);
 
 		test.modificarFactura(dto4, (long)77);
-		assertTrue(test.listarFacturas((long)117).contains(dto5));
+		ResponseEntity responsetest = test.listarFacturas((long)117);
+		assertTrue(((List<DtoDetalleFactura>) responsetest).contains(dto5));
 
 	}
 	
@@ -136,9 +138,10 @@ class ControladorFacturaTest {
 		 * 
 		 * @param long*/
 	
-
-		test.eliminarFactura((long)77);
-		assertTrue(!test.listarFacturas((long)117).contains(dto3));
+		ArrayList<Long> arraytest = new ArrayList<>();
+		arraytest.add((long)77);
+		ResponseEntity responsetest = test.eliminarFactura((arraytest);
+		assertTrue(!((List<DtoDetalleFactura>) responsetest).contains(dto3));
 
 	}
 	
@@ -149,9 +152,11 @@ class ControladorFacturaTest {
 		 * 
 		 * @param long*/
 	
-
-		test.pagarFactura((long)77);
-		assertTrue(test.listarFacturas((long)117).contains(dto5));
+		ArrayList<Long> arraytest;
+		ArrayList<Long> arraytest = new ArrayList<>();
+		arraytest.add((long)77);
+		ResponseEntity responsetest = test.pagarFactura(arraytest);
+		assertTrue(((List<DtoDetalleFactura>) responsetest).contains(dto5));
 
 	}
 	

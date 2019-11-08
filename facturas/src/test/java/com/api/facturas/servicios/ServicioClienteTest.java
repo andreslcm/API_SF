@@ -67,7 +67,7 @@ class ServicioClienteTest {
 		
 		serviciotest.eliminarCliente((long)44);
 		assertFalse(enLista(serviciotest.listarClientes((long)117)));
-		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).eliminarCliente(321.0);
+		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).eliminarCliente((long)321);
 
 	}
 	
@@ -84,7 +84,7 @@ class ServicioClienteTest {
 		
 		serviciotest.modificarCliente(dto2, (long)44);
 		assertTrue(enListaMod(serviciotest.listarClientes((long)117), dto2));
-		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).modificarCliente(dto2, 321.0);
+		doThrow( new RecursoNoEncontrado("No hay ningún cliente con el ID número " + 321)).when(serviciotest).modificarCliente(dto2, (long)321);
 
 	}
 	

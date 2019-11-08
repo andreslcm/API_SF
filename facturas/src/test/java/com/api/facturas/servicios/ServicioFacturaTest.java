@@ -74,7 +74,7 @@ class ServicioFacturaTest {
 		arraytest = new ArrayList<>();
 		arraytest.add(dto4);
 		
-		serviciotest3.crearusUario(dto2);
+		serviciotest3.crearUsuario(dto2);
 		
 		serviciotest2.agregarCliente(dto, (long)117);
 				
@@ -90,8 +90,8 @@ class ServicioFacturaTest {
 		
 		
 		serviciotest.agregarFactura(envoltoriotest, (long)117, (long)44);
-		doThrow( new RecursoNoEncontrado("No existe ningún usuario con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, 312.0, 44.0);
-		doThrow( new RecursoNoEncontrado("No existe ningún cliente con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, 117.0, 321.0);
+		doThrow( new RecursoNoEncontrado("No existe ningún usuario con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, (long)312, (long)44);
+		doThrow( new RecursoNoEncontrado("No existe ningún cliente con el ID " + 321)).when(serviciotest).agregarFactura(envoltoriotest, (long)117, (long)321);
 		assertTrue(facturaEnLista(serviciotest.listarFacturas((long)117)));
 		assertTrue(facturaEnLista(serviciotest.listarFacturasPorCliente((long)44)));
 	}
@@ -106,7 +106,7 @@ class ServicioFacturaTest {
 				new Date(), 77.0, 77.0, 77.0,
 				"notas", false ));
 		serviciotest.modificarFactura(envoltoriotest, (long)77);
-		doThrow( new RecursoNoEncontrado("No existe una factura con el ID " + 321)).when(serviciotest).modificarFactura(envoltoriotest, 321.0);
+		doThrow( new RecursoNoEncontrado("No existe una factura con el ID " + 321)).when(serviciotest).modificarFactura(envoltoriotest, (long)321);
 		assertFalse(facturaEnLista(serviciotest.listarFacturas((long)77)));
 
 	}

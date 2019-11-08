@@ -63,16 +63,6 @@ class ClienteTest {
 
 	}
 
-	@Test
-	void setIdtestcliente() {
-
-		/** test de setter de Cliente.IdCliente */
-
-		testcliente.setIdCliente((long) 1234);
-		assertNotNull(testcliente.getIdCliente());
-		assertTrue(testcliente.getIdCliente() == 1234);
-
-	}
 
 	@Test
 	void getCiudadTest() {

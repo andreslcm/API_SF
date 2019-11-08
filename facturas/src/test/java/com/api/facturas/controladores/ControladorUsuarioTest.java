@@ -72,6 +72,5 @@ class ControladorUsuarioTest {
 		assertTrue(serviciotest.consultarDatos(((long)117)).equals(dto2));
 	}
 	
-	}
-	
 }
+	
