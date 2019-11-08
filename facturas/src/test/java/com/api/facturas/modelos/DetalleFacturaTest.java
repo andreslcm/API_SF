@@ -1,5 +1,4 @@
 package com.api.facturas.modelos;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -9,6 +8,8 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import com.api.facturas.dtos.DtoFactura;
+import com.api.facturas.modelos.DetalleFactura;
+import com.api.facturas.modelos.Factura;
 
 class DetalleFacturaTest {
 

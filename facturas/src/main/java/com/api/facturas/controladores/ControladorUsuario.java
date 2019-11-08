@@ -8,7 +8,6 @@ import com.api.facturas.seguridad.RespuestaHttp;
 import com.api.facturas.seguridad.RespuestaJwt;
 import com.api.facturas.seguridad.SolicitudJwt;
 import com.api.facturas.servicios.ServicioUsuario;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +54,7 @@ public class ControladorUsuario {
             throw new UsuarioExistente("El usuario ya existe: " + usuario.getNombreUsuario());
         }
 
-        servicio.crearusUario(usuario);
+        servicio.crearUsuario(usuario);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -74,6 +73,7 @@ public class ControladorUsuario {
         servicio.actualizarDatos(usuarioDto, idUsuario);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 
     @PutMapping("/actualizar-contrasena/{idUsuario}")
     public ResponseEntity<?> actualizarContrasena (@PathVariable(value = "idUsuario") Long idUsuario, @RequestParam String contrasena){

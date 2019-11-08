@@ -94,7 +94,7 @@ public class Cliente implements Serializable {
     public Long getIdCliente() {
         return idCliente;
     }
-
+    
     /**
      * Método para obtener el usuario al que está relacionado el cliente.
      * 

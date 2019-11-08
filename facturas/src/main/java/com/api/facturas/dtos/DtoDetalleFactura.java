@@ -32,7 +32,7 @@ public class DtoDetalleFactura {
         this.precio = detalleFactura.getPrecio();
         this.numeroPalabras = detalleFactura.getNumeroPalabras();
     }
-
+    
     /**
      * Método para obtener el monto del detalle.
      * 

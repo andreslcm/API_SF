@@ -37,10 +37,9 @@ public class ServicioFactura {
 
     /**
      * Método para agregar una factura y asignarla a un cliente y a un usuario.
-     * 
-     * @param envoltorio
-     * @param idUsuario
-     * @param idCliente
+     * @param Objeto envoltorio
+     * @param Long idUsuario
+     * @param Long idCliente
      */
     public void agregarFactura(EnvoltorioFactura envoltorio, Long idUsuario, Long idCliente) {
         List<DetalleFactura> detalles = new ArrayList<>();
@@ -77,9 +76,8 @@ public class ServicioFactura {
 
     /**
      * Método para listar las facturas correspondientes a un usuario.
-     * 
-     * @param idUsuario
-     * @return {List<DtoFacturas>} listaFacturas
+     * @param Long idUsuario
+     * @return Lista {List<DtoFacturas>} listaFacturas
      */
     public List<DtoFactura> listarFacturas(Long idUsuario) {
         List<DtoFactura> listaFacturas = new ArrayList<>();
@@ -92,9 +90,8 @@ public class ServicioFactura {
 
     /**
      * Método para listar las facturas por cliente.
-     * 
-     * @param idCliente
-     * @return {List<DtoFactura> listaFacturas}
+     * @param Long idCliente
+     * @return Lista {List<DtoFactura> listaFacturas}
      */
     public List<DtoFactura> listarFacturasPorCliente(Long idCliente) {
         List<DtoFactura> listaFacturas = new ArrayList<>();
@@ -107,9 +104,8 @@ public class ServicioFactura {
 
     /**
      * Método para modificar una factura y sus detalles.
-     * 
-     * @param envoltorio
-     * @param idFactura
+     * @param Objeto envoltorio
+     * @param Long idFactura
      */
     public void modificarFactura(EnvoltorioFactura envoltorio, Long idFactura) {
 
@@ -141,8 +137,7 @@ public class ServicioFactura {
 
     /**
      * Método para eliminar una factura de la BD.
-     * 
-     * @param idFactura
+     * @param Long idFactura
      */
     public void eliminarFactura(List<Long> idFactura) {
 
@@ -159,7 +154,7 @@ public class ServicioFactura {
 
     /**
      * Método para marcar una factura como pagada.
-     * @param idFactura
+     * @param Long idFactura
      */
     public void pagarFactura(List<Long> idFactura) {
         
