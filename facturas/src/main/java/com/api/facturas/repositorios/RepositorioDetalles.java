@@ -15,7 +15,6 @@ public interface RepositorioDetalles extends JpaRepository<DetalleFactura, Long>
     /**
      * Método que recibe como parámetro el id de una factura y hace una consulta SQL
      * para encontrar todos los detalles relacionados con la factura.
-     * 
      * @param Long idFactura
      * @return Lista {List<DetalleFactura>} Lista de detalles
      */

@@ -32,7 +32,6 @@ public class ServicioCliente {
 
     /**
      * Método para agregar un cliente a la base de datos a partir de un DTO.
-     * 
      * @param Objeto dtoCliente
      * @param Long idUsuario
      */
@@ -46,7 +45,6 @@ public class ServicioCliente {
 
     /**
      * Método para listar una lista de usuario a partir de si id.
-     * 
      * @param Long idUsuario
      * @return Lista {List<DtoCliente> listaClientes}
      */
@@ -61,7 +59,6 @@ public class ServicioCliente {
 
     /**
      * Método para eliminar a un cliente de la base de datos.
-     * 
      * @param Long idCliente
      */
     public void eliminarCliente(Long idCliente) {
@@ -71,7 +68,6 @@ public class ServicioCliente {
 
     /**
      * Método para modificar los datos de un cliente existente en la base de datos.
-     * 
      * @param Objeto cliente
      * @param Long idCliente
      */

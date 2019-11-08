@@ -37,7 +37,6 @@ public class ServicioFactura {
 
     /**
      * Método para agregar una factura y asignarla a un cliente y a un usuario.
-     * 
      * @param Objeto envoltorio
      * @param Long idUsuario
      * @param Long idCliente
@@ -77,7 +76,6 @@ public class ServicioFactura {
 
     /**
      * Método para listar las facturas correspondientes a un usuario.
-     * 
      * @param Long idUsuario
      * @return Lista {List<DtoFacturas>} listaFacturas
      */
@@ -92,7 +90,6 @@ public class ServicioFactura {
 
     /**
      * Método para listar las facturas por cliente.
-     * 
      * @param Long idCliente
      * @return Lista {List<DtoFactura> listaFacturas}
      */
@@ -107,7 +104,6 @@ public class ServicioFactura {
 
     /**
      * Método para modificar una factura y sus detalles.
-     * 
      * @param Objeto envoltorio
      * @param Long idFactura
      */
@@ -141,7 +137,6 @@ public class ServicioFactura {
 
     /**
      * Método para eliminar una factura de la BD.
-     * 
      * @param Long idFactura
      */
     public void eliminarFactura(List<Long> idFactura) {

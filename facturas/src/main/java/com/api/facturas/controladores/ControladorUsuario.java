@@ -3,17 +3,26 @@ package com.api.facturas.controladores;
 import com.api.facturas.dtos.DtoUsuario;
 import com.api.facturas.excepciones.CorreoExistente;
 import com.api.facturas.excepciones.UsuarioExistente;
+import com.api.facturas.seguridad.HerramientaToken;
+import com.api.facturas.seguridad.RespuestaHttp;
+import com.api.facturas.seguridad.RespuestaJwt;
+import com.api.facturas.seguridad.SolicitudJwt;
 import com.api.facturas.servicios.ServicioUsuario;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,6 +34,10 @@ public class ControladorUsuario {
 
     @Autowired
     private ServicioUsuario servicio;
+    @Autowired
+    private HerramientaToken herramienta;
+    @Autowired
+    private AuthenticationManager autenticador;
 
     /**
      * Método para registrar a un usuario en la BD.
@@ -61,6 +74,13 @@ public class ControladorUsuario {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+
+    @PutMapping("/actualizar-contrasena/{idUsuario}")
+    public ResponseEntity<?> actualizarContrasena (@PathVariable(value = "idUsuario") Long idUsuario, @RequestParam String contrasena){
+        servicio.actualizarContrasena(idUsuario, contrasena);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     /**
      * Método para consultar los datos del usuario.
      * 
@@ -74,4 +94,39 @@ public class ControladorUsuario {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
+    /**
+     * Método para inicio de sesión y autenticación de usuarios.
+     * 
+     * @param solicitudAutenticacion
+     * @return {ResponseEntity<>}
+     * @throws Exception
+     */
+    @PostMapping("/login")
+    public ResponseEntity<?> crearTokenAutenticacion(@RequestBody SolicitudJwt solicitudAutenticacion)
+            throws Exception {
+        autenticar(solicitudAutenticacion.getNombreUsuario(), solicitudAutenticacion.getContrasena());
+        final UserDetails detallesUsuario = servicio.loadUserByUsername(solicitudAutenticacion.getNombreUsuario());
+
+        final String token = herramienta.generarToken(detallesUsuario);
+
+        int id = servicio.obtenerIdUsuario(solicitudAutenticacion.getNombreUsuario());
+        
+        return ResponseEntity.ok(new RespuestaHttp(new RespuestaJwt(token), id));
+    }
+
+    /**
+     * Método para autenticar.
+     * @param nombreUsuario
+     * @param contrasena
+     * @throws Exception
+     */
+    private void autenticar(String nombreUsuario, String contrasena) throws Exception{
+        try {
+          autenticador.authenticate(new UsernamePasswordAuthenticationToken(nombreUsuario, contrasena));
+        } catch (DisabledException e){
+            throw new Exception("USUARIO BLOEQUEADO", e);
+        } catch (BadCredentialsException e){
+            throw new Exception("CREDENCIALES INVÁLIDAS", e);
+        }
+    }
 }

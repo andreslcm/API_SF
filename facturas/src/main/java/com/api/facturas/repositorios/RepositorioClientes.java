@@ -16,7 +16,6 @@ public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
     /**
      * Método que recibe como parámetro el id de un usuario para hacer una consulta
      * SQL y buscar a todos los clientes relacionados con ese id de usuario.
-     * 
      * @param Long idUsuario
      * @return Lista {List<Cliente>}Lista de clientes
      */
@@ -26,7 +25,6 @@ public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
     /**
      * Método que recibe como parámetro el nombre de un cliente para hacer una
      * consulta SQL y buscar a un cliente por su nombre.
-     * 
      * @param String nombreCliente
      * @return Objeto {Cliente} cliente
      */

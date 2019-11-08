@@ -388,7 +388,7 @@ public class Usuario implements Serializable {
         this.setNombre(usuario.getNombre());
         this.setApellido(usuario.getApellido());
         this.setNombreUsuario(usuario.getNombreUsuario());
-        this.setContrasena(usuario.getContrasena());
+        // this.setContrasena(usuario.getContrasena());
         this.setCorreo(usuario.getCorreo());
         this.setDireccion(usuario.getDireccion());
         this.setCiudad(usuario.getCiudad());
@@ -399,6 +399,10 @@ public class Usuario implements Serializable {
         this.setDatosBanco(usuario.getDatosBanco());
         this.setDatosPaypal(usuario.getDatosPaypal());
         this.setDatosPayoneer(usuario.getDatosPayoneer());
+    }
+
+    public void actualizarContrasena(String contrasena){
+        this.setContrasena(contrasena);
     }
 
 }

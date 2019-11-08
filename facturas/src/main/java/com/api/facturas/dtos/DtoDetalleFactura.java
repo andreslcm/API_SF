@@ -10,6 +10,8 @@ public class DtoDetalleFactura {
     private Long idDetalleFactura;
     private String descripcionProyecto;
     private double monto;
+    private double precio;
+    private Integer numeroPalabras;
 
     /**
      * Constructor vacío
@@ -27,6 +29,8 @@ public class DtoDetalleFactura {
         this.monto = detalleFactura.getMonto();
         this.descripcionProyecto = detalleFactura.getDescripcionProyecto();
         this.idDetalleFactura = detalleFactura.getIdDetalleFactura();
+        this.precio = detalleFactura.getPrecio();
+        this.numeroPalabras = detalleFactura.getNumeroPalabras();
     }
     
     /**
@@ -81,6 +85,22 @@ public class DtoDetalleFactura {
      */
     public void setDescripcionProyecto(String descripcionProyecto) {
         this.descripcionProyecto = descripcionProyecto;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public Integer getNumeroPalabras() {
+        return numeroPalabras;
+    }
+
+    public void setNumeroPalabras(Integer numeroPalabras) {
+        this.numeroPalabras = numeroPalabras;
     }
 
 }

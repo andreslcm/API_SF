@@ -16,7 +16,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Método que recibe el id de un usuario y hace una consulta SQL para encotrar
      * todas las facturas relacionadas con el usuario.
-     * 
      * @param Long idUsuario
      * @return Lista {List<Factura>} Lista de facturas
      */
@@ -26,7 +25,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Método que recibe el id de un cliente y hace una consulta SQL para listar
      * todas las facturas relacionadas con ese cliente.
-     * 
      * @param Long idCliente
      * @return Lista {List<Factura>} Lista de facturas
      */
@@ -36,7 +34,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Método que recibe un id y hace una consulta SQL para buscar una factura por
      * su id.
-     * 
      * @param Long idFactura
      * @return Objeto {Factura} Factura
      */
@@ -46,7 +43,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Método que recibe un id y hace una consulta SQL para obtener el monto
      * promedio por factura de un usuario.
-     * 
      * @param Long idUsuario
      * @return {Double} promedio
      */
@@ -56,7 +52,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Método que recibe el id de un usuario y hace una consulta SQL para mostrar
      * todas las facturas que aún no se han cobrado.
-     * 
      * @param Long idUsuario
      * @return {Double} totalPorCobrar
      */
@@ -66,7 +61,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Método que recibe el id de un usuario y hace una consulta SQL para mostrar el
      * monto total de todas las facturas.
-     * 
      * @param Long idUsuario
      * @return {Double} sumaTotal
      */
@@ -76,7 +70,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Método que recibe el id de un usuario y hace una consulta SQL para mostrar
      * todas las facturas no pagadas de ese usuario.
-     * 
      * @param Long idUsuario
      * @return Objeto {Factura}
      */
@@ -85,7 +78,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
 
     /**
      * Muestra las facturas de los últimos 7 días.
-     * 
      * @param Long idUsuario
      * @return Lista {List<Factura>} ultimos7Dias
      */
@@ -94,7 +86,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
 
     /**
      * Muestra las facturas de los últimos 30 días.
-     * 
      * @param Long idUsuario
      * @return Lista {List<Factura>} ultimos30Dias
      */
@@ -103,7 +94,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
 
     /**
      * Muestra las facturas de los últimos 90 días.
-     * 
      * @param Long idUsuario
      * @return {List<Factura>} ultimos90Dias
      */
@@ -112,7 +102,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
 
     /**
      * Muestra las facturas de los últimos 180 días.
-     * 
      * @param Long idUsuario
      * @return Lista {List<Factura>} ultimos180Dias
      */
@@ -121,7 +110,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
 
     /**
      * Muestra las facturas de los últimos 365 días.
-     * 
      * @param Long idUsuario
      * @return Lista {List<Factura>} ultimos365Dias
      */
@@ -130,7 +118,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
 
     /**
      * Muestra una lista de facturas pertenecientes a un cliente en particular.
-     * 
      * @param Long idCliente
      * @return Lista {List<Factura> porCliente}
      */
@@ -139,7 +126,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
 
     /**
      * Muestra el nombre de los primeros 5 clientes a los que más se facturó.
-     * 
      * @param Long idUsuario
      * @return Lista {List<String> mejoresClientes}
      */
@@ -149,7 +135,6 @@ public interface RepositorioFacturas extends JpaRepository<Factura, Long> {
     /**
      * Muestra el monto total facturado a los primeros 5 de acuerdo por orden de
      * importancia.
-     * 
      * @param Long idUsuario
      * @return Lista {List<Double> mejoresClientes}
      */
