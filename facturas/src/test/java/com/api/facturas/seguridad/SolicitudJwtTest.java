@@ -43,33 +43,24 @@ class SolicitudJwtTest {
 		assertTrue(test.getNombreUsuario().equals("test2"));
 
 	}
-
+	
 	@Test
-	void getMontoTest() {
+	void getContraseñaTest() {
 
-		/** test de getter de DetalleFactura.monto */
+		/** test de getter de SolicitudJwt.getContrasena */
 
-		assertTrue(detalletest.getMonto() == 1000);
+		assertTrue(test.getContrasena().equals("test"));
 
 	}
 
 	@Test
-	void setMontoTest() {
+	void setContrasenaTest() {
 
-		/** test de setter de DetalleFactura.monto */
+		/** test de setter de SolicitudJwt.setContrasena */
 
-		detalletest.setMonto(10);
-		assertTrue(detalletest.getMonto() == 10);
+		test.setContrasena("test2");
+		assertTrue(test.getContrasena().equals("test2"));
 
-	}
-
-	@Test
-	void setAndgetFacturaTest() {
-
-		/** test de getter y setter de DetalleFactura.factura */
-
-		detalletest.setFactura(facturatest);
-		assertTrue(detalletest.getFactura().equals(facturatest));
 	}
 
 }
